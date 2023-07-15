@@ -14,7 +14,7 @@
 // import 'package:intl/intl.dart';
 //
 // String backgroundImagePath = 'assets/images/loginBackgroundImage.jpeg';
-// String baseUrl = "http://127.0.0.1:8080";
+// String baseUrl = "http://10.0.2.2:8080";
 //
 // class NewsFeedPage2 extends StatelessWidget {
 //   const NewsFeedPage2({Key? key}) : super(key: key);

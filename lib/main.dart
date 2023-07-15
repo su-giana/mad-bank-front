@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_login/animated_login.dart';
 import 'package:async/async.dart';
+import 'package:flutter_application_1/flex_screen.dart';
 import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
 import 'dialog_builders.dart';
 
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         '/login': (BuildContext context) => const LoginScreen(),
         '/forgotPass': (BuildContext context) => const ForgotPasswordScreen(),
         '/myTransaction': (BuildContext context) => MyTransactionScreen(), // 추가된 라우트
+        '/flex': (BuildContext context) => FlexScreen(),
       },
     );
   }
