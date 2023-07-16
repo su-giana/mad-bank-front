@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (BuildContext context) => const LoginScreen(),
         '/forgotPass': (BuildContext context) => const ForgotPasswordScreen(),
-        '/myTransaction': (BuildContext context) => MyTransactionScreen(), // 추가된 라우트
+        // '/myTransaction': (BuildContext context) => MyTransactionScreen(), // 추가된 라우트
       },
     );
   }

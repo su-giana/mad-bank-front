@@ -4,6 +4,8 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/first_tab.dart';
+import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:http/http.dart' as http;
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -14,7 +16,7 @@ import 'package:tuple/tuple.dart';
 import 'package:intl/intl.dart';
 
 String backgroundImagePath = 'assets/images/loginBackgroundImage.jpeg';
-String baseUrl = "http://127.0.0.1:8080";
+String baseUrl = "http://127.0.0.1:80";
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -38,6 +40,7 @@ class _FirstState extends State<FirstPage> {
   late final endPoint = startPoint + deviceWidth - imgSize; // img size = 48
 
   late final List<Widget> _widgetOptions = <Widget>[
+    FirstTab(),
 
   ];
 
@@ -47,14 +50,8 @@ class _FirstState extends State<FirstPage> {
   Widget build(BuildContext context) {
     return Stack(
         children:[
-          Image.asset(
-            backgroundImagePath,
-            height: deviceHeight,
-            width: deviceWidth,
-            fit: BoxFit.cover,
-          ),
           Scaffold(
-            backgroundColor: Colors.transparent,
+            backgroundColor: Colors.white,
             body: Padding(
               padding: EdgeInsets.fromLTRB(0, deviceHeight*0.07, 0, 0),
               child: LayoutBuilder(
@@ -65,7 +62,6 @@ class _FirstState extends State<FirstPage> {
                     child: AnimatedSwitcher(
                       duration: const Duration(milliseconds: 300),
                       transitionBuilder: (Widget child, Animation<double> animation) {
-                        // Change the transition according to your needs
                         return FadeTransition(opacity: animation, child: child);
                       },
                       child: _widgetOptions.elementAt(_selectedIndex),
@@ -99,16 +95,12 @@ class _FirstState extends State<FirstPage> {
                     color: const Color.fromARGB(255, 255, 255, 255),
                     tabs: const [
                       GButton(
-                        icon: LineIcons.tree,
-                        text: 'My Tree',
+                        icon: LineIcons.coins,
+                        text: 'Bank',
                       ),
                       GButton(
-                        icon: LineIcons.heart,
-                        text: 'Our Tree',
-                      ),
-                      GButton(
-                        icon: LineIcons.comment,
-                        text: 'Rolling Paper',
+                        icon: LineIcons.wallet,
+                        text: 'ATM',
                       ),
                     ],
                     selectedIndex: _selectedIndex,

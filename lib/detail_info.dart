@@ -5,7 +5,7 @@ import 'package:flutter_application_1/main.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:http/http.dart' as http;
 
-String baseUrl = 'http://10.0.2.2:8080';
+String baseUrl = 'http://127.0.0.1:80';
 
 class DetailPage extends StatefulWidget {
   late final String id;
@@ -47,7 +47,8 @@ class _DetailPageState extends State<DetailPage>
       BuildContext context, String phone, String dob, String socialId) async {
     await _signup(
         context, widget.id, widget.password, widget.name, phone, dob, socialId);
-    Navigator.of(context).pop();
+    await Navigator.pushReplacement(context, MaterialPageRoute(
+        builder: (context) => LoginScreen()));
   }
 
   @override
@@ -196,8 +197,3 @@ Future<String> _signup(BuildContext context, String id, String pw,
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: DetailPage('userId', 'password123', 'John Doe'),
-  ));
-}

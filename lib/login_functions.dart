@@ -7,7 +7,7 @@ import 'package:flutter_application_1/first_page.dart';
 import 'detail_info.dart';
 import 'dialog_builders.dart';
 
-String baseUrl = "http://127.0.0.1:8080";
+String baseUrl = "http://127.0.0.1:80";
 
 
 class LoginFunctions {
@@ -26,10 +26,8 @@ class LoginFunctions {
       return '비밀번호가 일치하지 않습니다.';
     }
 
-
-    await Navigator.pushReplacement(context, MaterialPageRoute(
+    await Navigator.push(context, MaterialPageRoute(
         builder: (context) => DetailPage(signupData.email, signupData.password, signupData.name)));
-
 
     await Future.delayed(const Duration(seconds: 2));
     return "회원가입을 시도했습니다";
