@@ -5,6 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 import '../first_tab.dart';
+import '../no_account_form.dart';
+import '../with_account_form.dart';
 
 final defaultTextStyle = TextStyle(
   fontFamily: 'YourDesiredFont',
@@ -163,90 +165,98 @@ class _MyTransactionScreenState extends State<MyTransactionScreen>{
         color: Colors.white, // 배경색 설정
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 40.0),
-                    child: Row(
+            Container(
+              color: Colors.amberAccent,
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 40.0),
+                      child: Row(
+                        children: [
+                          SizedBox(height: 100,),
+                          Text(
+                            '매드뱅크',
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                          SizedBox(width: 8.0),
+                          Text(
+                            widget.item.accountNumber.toString(),
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              color: Colors.black,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Text(
+                      widget.item.balance.toString()+'원',
+                      style: TextStyle(
+                        fontSize: 35.0,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        SizedBox(height: 100,),
-                        Text(
-                          '매드뱅크',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                            decoration: TextDecoration.underline,
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.all(14.0),
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => NoAccountForm(item: widget.item)),
+                                );
+                              },
+                              child: Text(
+                                '채우기',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xFFEEAB73),
+                              ),
+                            ),
                           ),
                         ),
-                        SizedBox(width: 8.0),
-                        Text(
-                          // '계좌번호',
-                          widget.item.accountNumber.toString(),
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.black,
-                            decoration: TextDecoration.underline,
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.all(14.0),
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => WithAccountForm(item: widget.item)),
+                                );
+                              },
+                              child: Text(
+                                '보내기',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xFFF5A281),
+                              ),
+                            ),
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  Text(
-                    widget.item.balance.toString()+'원',
-                    style: TextStyle(
-                      fontSize: 35.0,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.all(14.0),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              // 채우기 버튼 눌렀을 때 동작
-                            },
-                            child: Text(
-                              '채우기',
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFFEEAB73),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.all(14.0),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              // 보내기 버튼 눌렀을 때 동작
-                            },
-                            child: Text(
-                              '보내기',
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFFF5A281),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Expanded(
@@ -264,14 +274,11 @@ class Transaction
   final int id;
   final int senderId;
   final int receiverId;
-  late String? senderName;
-  late String? receiverName;
   final String transactionType;
   final int cost;
   final String resultCode;
 
   Transaction({required this.id, required this.senderId, required this.receiverId,
-    this.senderName, this.receiverName,
     required this.transactionType, required this.cost, required this.resultCode});
 
   factory Transaction.fromJson(Map<String,dynamic> json)

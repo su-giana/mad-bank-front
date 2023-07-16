@@ -10,7 +10,7 @@ String backgroundImagePath = 'assets/images/loginBackgroundImage.jpeg';
 String baseUrl = "http://127.0.0.1:80";
 
 final defaultTextStyle = TextStyle(
-  fontFamily: 'YourDesiredFont',
+  fontFamily: 'mainfont',
   fontSize: 16,
 );
 

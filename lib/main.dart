@@ -51,12 +51,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //     image: AssetImage('assets/images/loginBackgroundImage.jpeg'),
-        //     fit: BoxFit.cover,
-        //   ),
-        // ),
     child: AnimatedLogin(
       onLogin: (LoginData data) async =>
           _authOperation(logIn.LoginFunctions(context).onLogin(data)),
