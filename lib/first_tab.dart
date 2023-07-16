@@ -36,6 +36,58 @@ class FirstTab extends StatelessWidget {
     return accounts;
   }
 
+  Future<void> createAccount(BuildContext context) async
+  {
+    final request  = Uri.parse("$baseUrl/create_account");
+    final jwtToken = await getJwtToken();
+    final headers = <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+      'Authorization': 'Bearer $jwtToken'
+    };
+
+    var response = await http.get(request, headers:headers);
+    if(response.statusCode == 200)
+      {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              content: Text("계정 생성에 성공했습니다"),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    // Dismiss the dialog
+                    Navigator.pop(context);
+                  },
+                  child: Text("OK"),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    else
+      {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              content: Text("계정 생성에 실패했습니다"),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    // Dismiss the dialog
+                    Navigator.pop(context);
+                  },
+                  child: Text("OK"),
+                ),
+              ],
+            );
+          },
+        );
+      }
+  }
+
   FutureBuilder<List<Account>> getMyAccountList()
   {
     return FutureBuilder<List<Account>>(
@@ -48,7 +100,7 @@ class FirstTab extends StatelessWidget {
             return Scaffold(
               body: Center(
                 child: Container(
-                  constraints: const BoxConstraints(maxWidth: 400),
+                  constraints: const BoxConstraints(maxWidth: 450),
                   child: ListView.builder(
                     itemCount: accounts.length,
                     itemBuilder: (BuildContext context, int index) {
@@ -167,13 +219,63 @@ class FirstTab extends StatelessWidget {
                   width: 200,
                   fit: BoxFit.cover,
                 ),
-                Text("안녕하세요 ${username}님!",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                  child: Text("안녕하세요 ${username}님!",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
+                Container(
+                  color: Colors.amberAccent,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "새 계좌가 필요하신가요?",
+                              style: TextStyle(
+                                fontFamily: "mainfont",
+                                color: Colors.black87,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(13.0),
+                            child: GestureDetector(
+                              child: Text(
+                                "계좌 개설하기!",
+                                style: TextStyle(
+                                  fontFamily: "mainfont",
+                                  color: Colors.black87,
+                                  fontSize: 18,
+                                ),
+                              ),
+                                onTap: () async {
+                                  await createAccount(context);
+                                },
+                            )
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
                 Expanded(
                   child: getMyAccountList(),
                 ),

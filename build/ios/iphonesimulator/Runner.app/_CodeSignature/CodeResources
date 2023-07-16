@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		H+q9NJMGt3sR/SzEFl8FcvoYhNg=
+		gOw7jKlAL9kFR5ZozaSVfpIAYVI=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,15 +54,15 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		QTzwN6AH2cO+qzS+lTVS5HOjIiM=
+		EGy72lxyyCMz9zrTYV7yk/0/oIY=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
-		uOLlBno17j7STOzKNrRiz7eOLnc=
+		7ha7BfEmd0lhb7a/aQuHjhFpiZs=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		REFQg+7zuvIIjCFo/67ptp1BzAY=
+		H57T7Od4OmYIryfaoBCLsUJsjiw=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -71,6 +71,10 @@
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
 		uETDrzA/7i8PjJzj5bDZMrpsJIs=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/fonts/mainboldfont.ttf</key>
+		<data>
+		GNVcSATwcyKbS4SrUJJqoq9oMek=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/fonts/mainfont.ttf</key>
 		<data>
@@ -82,7 +86,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/copymoney.gif</key>
 		<data>
-		HED7f0tOveRdhmzGyDa0AmkJdQ4=
+		QXXfHeMcBSZUOt+ifpK2sPqJ2fg=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/delmoney.gif</key>
 		<data>
@@ -114,7 +118,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		jK37G+OKvBqNhwbM6nvuWz5LOIg=
+		QH4gwxVc5WmGXx2xq/Qr/lkaAG8=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -493,7 +497,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ONGD7uzaecJT9FlmY5cTdJFF7tHAo6Af7+dmUmy1wS0=
+			QcRUR3erl1+b/UCBWDRntd/qGSOc7MX0gCl9tARYbAI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -507,21 +511,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4GoAj0zz5j+Ea0+5DJb8T5qNdJG9HYsOXMXJE4bvljw=
+			pGsvagSryXafgqH2/r6n9Ir8K/cFEpJfI2+zXiJ67Os=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pXScwU4T/LYh48JN7EQl1JrhLjxkSElPudN1LetRt9o=
+			hdtmrw3RP4CoYym8VxCpwLe+hj/bYeR/tf6cK9UVYTg=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			25Y7ObNpnEO0Gj4LMZPEWDdLsDX2qzGTsf2qzuaoztY=
+			caA0XlobppItRVz4hhPRotiG0YMco2IkRWp/d0ZnQaw=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -536,6 +540,13 @@
 			<key>hash2</key>
 			<data>
 			ij7006/dfim1ZPKc/zN5bPUPUQgG5RDQy0WHY3QIPn0=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/fonts/mainboldfont.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ObukzZvSmGFDglyGVKu7YkQ5FKszs0bAySmpFvXZi/I=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/fonts/mainfont.ttf</key>
@@ -556,7 +567,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RLBH9BSbG61NVLIWFo0LyIeI8vNU+Ew6pvMrOAvsqFc=
+			OVWcdPOUYCG4TTa6oKQFG6UXcnckco1Y+WoIdj6l4Qc=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/delmoney.gif</key>
@@ -612,7 +623,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GkX1Z4cKDIfrrcK1jpMG0MgReTT5F9E33KkSLTUdeZ8=
+			lUoZnegaqmPTDRYoP1PAkYeXu9Q7zBZw95Wy8LqZlJM=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
