@@ -63,6 +63,12 @@ class _LoginScreenState extends State<LoginScreen> {
       loginDesktopTheme: _desktopTheme,
       loginMobileTheme: _mobileTheme,
       loginTexts: _loginTexts,
+      nameValidator: ValidatorModel(
+        customValidator: (name)
+            {
+              return null;
+            }
+      ),
       emailValidator: ValidatorModel(
         customValidator: (id) {
           return null;

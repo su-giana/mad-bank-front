@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'atm_form.dart';
 import 'first_tab.dart';
 import 'no_account_form.dart';
 
@@ -19,8 +20,9 @@ final defaultTextStyle = TextStyle(
 
 
 class SelectAtmAccountTab extends StatelessWidget {
+  final String transactionType;
 
-  const SelectAtmAccountTab({super.key});
+  const SelectAtmAccountTab({super.key, required this.transactionType});
 
   Future<List<Account>> getAccountList() async{
     final request  = Uri.parse("$baseUrl/account_list");
@@ -69,7 +71,7 @@ class SelectAtmAccountTab extends StatelessWidget {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => NoAccountForm(item: item)),
+                              MaterialPageRoute(builder: (context) => AtmForm(transactionType: transactionType, item: item)),
                             );
                           },
                           child: Column(

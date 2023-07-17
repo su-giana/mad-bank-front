@@ -16,6 +16,7 @@ class WithAccountForm extends StatefulWidget {
 
 class _WithAccountFormState extends State<WithAccountForm> {
   bool _showForm = true;
+  final costController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +50,7 @@ class _WithAccountFormState extends State<WithAccountForm> {
                         ),
                       ),
                       TextFormField(
+                        controller: costController,
                         decoration: InputDecoration(
                           hintText: '계좌번호를 입력하세요',
                           filled: true,
@@ -87,7 +89,7 @@ class _WithAccountFormState extends State<WithAccountForm> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => FailScreen(item: TransactionWithName(trans: Transaction(id:1, senderId:1, receiverId:1, transactionType: 'Success', cost: 1000, resultCode:'Success'), receiverName: "asdf", senderName: "qwer"))),
+                            MaterialPageRoute(builder: (context) => FailScreen(cost: int.parse(costController.text), sentAccount: widget.item.id.toString(), receivedAccount: widget.item.id.toString())),
                           );
                         },
                         style: ElevatedButton.styleFrom(

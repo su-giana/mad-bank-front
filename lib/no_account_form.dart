@@ -15,6 +15,7 @@ class NoAccountForm extends StatefulWidget {
 
 class _NoAccountFormState extends State<NoAccountForm> {
   bool _showForm = true;
+  TextEditingController costController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +53,7 @@ class _NoAccountFormState extends State<NoAccountForm> {
                           ),
                         ),
                         TextFormField(
+                          controller: costController,
                           decoration: InputDecoration(
                             hintText: '금액을 입력하세요',
                             filled: true,
@@ -64,7 +66,7 @@ class _NoAccountFormState extends State<NoAccountForm> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => SuccessScreen(item: TransactionWithName(trans: Transaction(id:1, senderId:1, receiverId:1, transactionType: 'Success', cost: 1000, resultCode:'Success'), receiverName: "asdf", senderName: "qwer"))),
+                              MaterialPageRoute(builder: (context) => SuccessScreen(cost: int.parse(costController.text), sentAccount: widget.item.id.toString(), receivedAcount: widget.item.id.toString(),)),
                             );
                           },
                           style: ElevatedButton.styleFrom(

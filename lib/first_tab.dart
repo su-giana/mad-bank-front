@@ -6,6 +6,8 @@ import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart'
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'first_page.dart';
+
 String backgroundImagePath = 'assets/images/loginBackgroundImage.jpeg';
 String baseUrl = "http://127.0.0.1:80";
 
@@ -56,13 +58,20 @@ class FirstTab extends StatelessWidget {
               actions: [
                 TextButton(
                   onPressed: () {
-                    // Dismiss the dialog
                     Navigator.pop(context);
                   },
-                  child: Text("OK"),
+                  child:GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => FirstPage()));
+                    },
+                    child:  Text("OK"),
+                  )
                 ),
               ],
             );
+
           },
         );
       }

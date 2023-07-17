@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
 
 class SuccessScreen extends StatelessWidget {
-  final TransactionWithName item;
+  final int cost;
+  final String sentAccount;
+  final String receivedAcount;
 
-  const SuccessScreen({Key? key, required this.item}) : super(key: key);
+  const SuccessScreen({Key? key, required this.cost, required this.sentAccount, required this.receivedAcount}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +38,17 @@ class SuccessScreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                '송금자: ${item.senderName} | 입금자: ${item.receiverName}',
+                '송금자: ${sentAccount}',
                 style: TextStyle(fontFamily: "mainfont", fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
               ),
               SizedBox(height: 20),
               Text(
-                '결제 금액: ${item.trans.cost}',
+                '입금자: ${receivedAcount}',
+                style: TextStyle(fontFamily: "mainfont", fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+              ),
+              SizedBox(height: 20),
+              Text(
+                '결제 금액: ${cost}',
                 style: TextStyle(fontFamily: "mainfont", fontSize: 20, color: Colors.grey),
               ),
               SizedBox(height: 5),

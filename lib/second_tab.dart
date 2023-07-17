@@ -57,7 +57,7 @@ class _SecondScreenState extends State<SecondScreen>
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SelectAtmAccountTab()),
+                  MaterialPageRoute(builder: (context) => SelectAtmAccountTab(transactionType: "Deposit")),
                 );
               }, // Set the onTap callback function here
               child: Image.asset(
@@ -73,7 +73,7 @@ class _SecondScreenState extends State<SecondScreen>
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SelectAtmAccountTab()),
+                  MaterialPageRoute(builder: (context) => SelectAtmAccountTab(transactionType: "Withdrawal")),
                 );
               }, // Set the onTap callback function here
               child: Image.asset(
