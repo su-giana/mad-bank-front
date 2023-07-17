@@ -33,6 +33,5 @@ class LoadingIndicator extends StatelessWidget {
 
   Widget _getHeading(BuildContext context) => const Padding(
         padding: EdgeInsets.only(bottom: 10),
-        child: Text('Please Wait...'),
       );
 }

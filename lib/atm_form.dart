@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/loading_indicator.dart';
 import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
 import 'package:flutter_application_1/success.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,10 +45,31 @@ class _NoAccountFormState extends State<AtmForm> {
     var response = await http.post(request, headers:headers, body: json.encode(body));
     if(response.statusCode==200)
       {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SuccessScreen(cost: int.parse(cost), receivedAcount: "${item.accountNumber}", sentAccount: "${item.accountNumber}")),
+        showDialog(
+          context: context,
+          builder: (context) => LoadingIndicator(), // Show the loading screen
+          barrierDismissible: false, // Prevent user from dismissing the dialog
         );
+
+        // Simulate a loading delay with Future.delayed
+        // You can replace this with your actual loading logic
+        Future.delayed(Duration(seconds: 2), () {
+          // Pop the loading screen
+          Navigator.of(context).pop();
+
+          // Pop the two previous screens
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => SuccessScreen(
+                cost: int.parse(cost),
+                receivedAcount: "${item.accountNumber}",
+                sentAccount: "${item.accountNumber}",
+              ),
+            ),
+          );
+        });
       }
     else
       {
