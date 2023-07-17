@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 import 'fail.dart';
 import 'first_tab.dart';
 
-String baseUrl = 'http://127.0.0.1';
+String baseUrl = 'http://127.0.0.1:80';
 
 class AtmForm extends StatefulWidget {
   final String transactionType;
@@ -38,7 +38,7 @@ class _NoAccountFormState extends State<AtmForm> {
     var body = {
       'transactionType': transactionType,
       'senderAccountId': item.id,
-      'receiverAccountId': item.id,
+      'receiverAccountNumber': item.accountNumber,
       'cost': int.parse(cost)
     };
 
@@ -73,10 +73,31 @@ class _NoAccountFormState extends State<AtmForm> {
       }
     else
       {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => FailScreen(cost: int.parse(cost), receivedAccount: "${item.accountNumber}", sentAccount: "${item.accountNumber}")),
+        showDialog(
+          context: context,
+          builder: (context) => LoadingIndicator(), // Show the loading screen
+          barrierDismissible: false, // Prevent user from dismissing the dialog
         );
+
+        // Simulate a loading delay with Future.delayed
+        // You can replace this with your actual loading logic
+        Future.delayed(Duration(seconds: 2), () {
+          // Pop the loading screen
+          Navigator.of(context).pop();
+
+          // Pop the two previous screens
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => FailScreen(
+                cost: int.parse(cost),
+                receivedAccount: "${item.accountNumber}",
+                sentAccount: "${item.accountNumber}",
+              ),
+            ),
+          );
+        });
       }
   }
 

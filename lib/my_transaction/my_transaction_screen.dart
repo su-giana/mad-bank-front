@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/select_account.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -109,10 +110,8 @@ class _MyTransactionScreenState extends State<MyTransactionScreen>{
       future: getTransactionList(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          // Data is still loading, display a loading indicator
           return CircularProgressIndicator();
         } else if (snapshot.hasData) {
-          // Data has been fetched, build the ListView using the data
           List<TransactionWithName> transactions = snapshot.data!;
           return ListView.builder(
             itemCount: transactions.length,
@@ -216,7 +215,7 @@ class _MyTransactionScreenState extends State<MyTransactionScreen>{
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => NoAccountForm(item: widget.item)),
+                                  MaterialPageRoute(builder: (context) => SelectAccountTab(item: widget.item)),
                                 );
                               },
                               child: Text(

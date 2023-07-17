@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/first_tab.dart';
 import 'package:flutter_application_1/select_atm_account_tab.dart';
+import 'package:flutter_application_1/success.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
 import 'fail.dart';
+import 'loading_indicator.dart';
 import 'my_transaction/my_transaction_screen.dart';
 import 'package:http/http.dart' as http;
 
 
-String baseUrl = 'http://127.0.0.1:8080';
+String baseUrl = 'http://127.0.0.1:80';
 
 
 class WithAccountForm extends StatefulWidget {
@@ -30,10 +33,10 @@ class _WithAccountFormState extends State<WithAccountForm> {
 
   Future<void> _startAnimation(BuildContext context, String accountNumber, int transferCost) async {
     await _transfer(context, accountNumber, transferCost);
-    await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => FailScreen(item: TransactionWithName(trans: Transaction(id:1, senderId:1, receiverId:1, transactionType: 'Success', cost: 1000, resultCode:'Success'), receiverName: "asdf", senderName: "qwer"))),
-    );
+    // await Navigator.push(
+    //   context,
+    //   MaterialPageRoute(builder: (context) => FailScreen(item: TransactionWithName(trans: Transaction(id:1, senderId:1, receiverId:1, transactionType: 'Success', cost: 1000, resultCode:'Success'), receiverName: "asdf", senderName: "qwer"))),
+    // );
   }
 
   @override
@@ -131,35 +134,88 @@ class _WithAccountFormState extends State<WithAccountForm> {
       ),
     );
   }
-}
 
-Future<String> _transfer(BuildContext context, String accountNumber, int transferCost) async {
-  final String Url = "$baseUrl/my_transfer"; //이거 주소 맞나?
-  final request = Uri.parse(Url);
-  var headers = <String, String>{
-    'Content-Type': 'application/json; charset=UTF-8',
-  };
+  Future<void> _transfer(BuildContext context, String accountNumber, int transferCost) async {
+    final String Url = "$baseUrl/transfer_money"; //이거 주소 맞나?
+    final request = Uri.parse(Url);
+    var headers = <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    };
 
-  var body = {
-    'accountNumber': accountNumber,
-    'transferCost': transferCost,
-  };
+    var body = {
+      'transactionType': 'Transfer',
+      'senderAccountId': widget.item.id,
+      'receiverAccountNumber': accountNumber,
+      'cost': transferCost
+    };
 
-  http.Response response;
-  try {
-    response = await http.post(request, headers: headers, body: json.encode(body));
-    if (response.statusCode == 200) {
-      await Future.delayed(const Duration(seconds: 2));
-      print('송금 completed!');
-      return "$accountNumber로 $transferCost원을 송금 완료했습니다.";
-    } else {
-      print('Signup failed with status');
-      // return "서버와 연결 시도 중 문제가 발생했습니다.";
-      return "서버 문제일지도?";
+    http.Response response;
+    try {
+      response = await http.post(request, headers: headers, body: json.encode(body));
+      if (response.statusCode == 200) {
+        showDialog(
+          context: context,
+          builder: (context) => LoadingIndicator(), // Show the loading screen
+          barrierDismissible: false, // Prevent user from dismissing the dialog
+        );
+
+        // Simulate a loading delay with Future.delayed
+        // You can replace this with your actual loading logic
+        Future.delayed(Duration(seconds: 2), () {
+          // Pop the loading screen
+          Navigator.of(context).pop();
+
+          // Pop the two previous screens
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => SuccessScreen(
+                cost: transferCost,
+                receivedAcount: "${widget.item.accountNumber}",
+                sentAccount: accountNumber,
+              ),
+            ),
+          );
+        });
+      } else {
+        showDialog(
+          context: context,
+          builder: (context) => LoadingIndicator(), // Show the loading screen
+          barrierDismissible: false, // Prevent user from dismissing the dialog
+        );
+
+        // Simulate a loading delay with Future.delayed
+        // You can replace this with your actual loading logic
+        Future.delayed(Duration(seconds: 2), () {
+          // Pop the loading screen
+          Navigator.of(context).pop();
+
+          // Pop the two previous screens
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => FailScreen(
+                cost: transferCost,
+                receivedAccount: "${widget.item.accountNumber}",
+                sentAccount: accountNumber,
+              ),
+            ),
+          );
+        });
+      }
+    } catch (error) {
+      print('error : $error');
     }
-  } catch (error) {
-    print('error : $error');
-    return "서버와 연결 시도 중 문제가 발생했습니다.";
-  }
 
+  }
 }
+
+
+
+
+  Future<String?> getJwtToken() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('jwtToken');
+  }

@@ -308,7 +308,7 @@ class FirstTab extends StatelessWidget {
 class Account {
   final int id;
   final int userId;
-  final int accountNumber;
+  final String accountNumber;
   final int balance;
 
   Account({required this.id, required this.userId, required this.accountNumber, required this.balance});

@@ -52,6 +52,7 @@ class SelectAccountTab extends StatelessWidget {
           {
             List<Account> accounts = snapshot.data!;
             return Scaffold(
+              backgroundColor: Colors.white,
               body: Center(
                 child: Container(
                   constraints: const BoxConstraints(maxWidth: 400),
@@ -160,25 +161,32 @@ class SelectAccountTab extends StatelessWidget {
             return CircularProgressIndicator();
           } else if (snapshot.hasData) {
             String? username = snapshot.data;
-            return Column(
-              children: [
-                Image.asset(
-                  'assets/images/loginScreen.gif',
-                  height: 200,
-                  width: 200,
-                  fit: BoxFit.cover,
-                ),
-                Text("계좌를 골라주세요",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
+            return Scaffold(
+              backgroundColor: Colors.white, // Set the background color here
+              body: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+                    child: Image.asset(
+                      'assets/images/loginScreen.gif',
+                      height: 200,
+                      width: 200,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: getMyAccountList(),
-                ),
-              ],
+                  Text(
+                    "계좌를 골라주세요",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Expanded(
+                    child: getMyAccountList(),
+                  ),
+                ],
+              ),
             );
           } else {
             return Text('Failed to fetch username.');
