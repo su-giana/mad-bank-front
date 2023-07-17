@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import 'fail.dart';
 import 'first_tab.dart';
 
-String baseUrl = 'http://127.0.0.1';
+String baseUrl = 'http://127.0.0.1:8080';
 
 class AtmForm extends StatefulWidget {
   final String transactionType;
@@ -53,7 +53,7 @@ class _NoAccountFormState extends State<AtmForm> {
       {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => FailScreen(cost: int.parse(cost), receivedAccount: "${item.accountNumber}", sentAccount: "${item.accountNumber}")),
+          MaterialPageRoute(builder: (context) => FailScreen(cost: int.parse(cost), receivedAccountNumber: "${item.accountNumber}", sentAccountNumber: "${item.accountNumber}")),
         );
       }
   }

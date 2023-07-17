@@ -5,6 +5,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/first_tab.dart';
+import 'package:flutter_application_1/market.dart';
 import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
 import 'package:flutter_application_1/second_tab.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -17,7 +18,7 @@ import 'package:tuple/tuple.dart';
 import 'package:intl/intl.dart';
 
 String backgroundImagePath = 'assets/images/loginBackgroundImage.jpeg';
-String baseUrl = "http://127.0.0.1:80";
+String baseUrl = "http://127.0.0.1:8080";
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -43,6 +44,7 @@ class _FirstState extends State<FirstPage> {
   late final List<Widget> _widgetOptions = <Widget>[
     FirstTab(),
     SecondScreen(),
+    Market(),
   ];
 
   int _selectedIndex = 0;
@@ -102,6 +104,10 @@ class _FirstState extends State<FirstPage> {
                       GButton(
                         icon: LineIcons.wallet,
                         text: 'ATM',
+                      ),
+                      GButton(
+                        icon: LineIcons.store,
+                        text: 'Market',
                       ),
                     ],
                     selectedIndex: _selectedIndex,

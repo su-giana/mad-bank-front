@@ -5,7 +5,7 @@ import 'package:flutter_application_1/main.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:http/http.dart' as http;
 
-String baseUrl = 'http://127.0.0.1:80';
+String baseUrl = 'http://127.0.0.1:8080';
 
 class DetailPage extends StatefulWidget {
   late final String id;

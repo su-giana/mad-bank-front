@@ -8,7 +8,7 @@ import 'my_transaction/my_transaction_screen.dart';
 import 'package:http/http.dart' as http;
 
 
-String baseUrl = 'http://127.0.0.1:8080';
+String baseUrl = 'http://127.0.0.1:80';
 
 
 class WithAccountForm extends StatefulWidget {
@@ -32,7 +32,12 @@ class _WithAccountFormState extends State<WithAccountForm> {
     await _transfer(context, accountNumber, transferCost);
     await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => FailScreen(item: TransactionWithName(trans: Transaction(id:1, senderId:1, receiverId:1, transactionType: 'Success', cost: 1000, resultCode:'Success'), receiverName: "asdf", senderName: "qwer"))),
+      MaterialPageRoute(builder: (context) => FailScreen(
+          cost:transferCost,
+          sentAccountNumber:widget.item.id.toString(), //큰일났어 비상사태...
+          receivedAccountNumber:accountNumber
+        ),
+      ),
     );
   }
 
