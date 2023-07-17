@@ -3,6 +3,7 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
+import 'package:flutter_application_1/no_account_form.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -17,10 +18,10 @@ final defaultTextStyle = TextStyle(
 );
 
 
-class SelectAccountTab extends StatelessWidget {
-  final Account item;
+class SelectDepositAccountTab extends StatelessWidget {
+  final Account itemReceived;
 
-  const SelectAccountTab({super.key, required this.item});
+  const SelectDepositAccountTab({super.key, required this.itemReceived});
 
   Future<List<Account>> getAccountList() async{
     final request  = Uri.parse("$baseUrl/account_list");
@@ -35,7 +36,7 @@ class SelectAccountTab extends StatelessWidget {
     List<Account> accounts = [];
     for(var accountJson in json)
     {
-      if(Account.fromJson(accountJson).id == item.id)  continue;
+      if(Account.fromJson(accountJson).id == itemReceived.id)  continue;
 
       accounts.add(Account.fromJson(accountJson));
     }
@@ -72,7 +73,7 @@ class SelectAccountTab extends StatelessWidget {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => MyTransactionScreen(item)),
+                              MaterialPageRoute(builder: (context) => NoAccountForm(send: item, receive: itemReceived)),
                             );
                           },
                           child: Column(

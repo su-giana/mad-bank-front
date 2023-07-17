@@ -12,9 +12,10 @@ import 'package:http/http.dart' as http;
 String baseUrl = 'http://127.0.0.1:80';
 
 class NoAccountForm extends StatefulWidget {
-  final Account item;
+  final Account send;
+  final Account receive;
 
-  const NoAccountForm({super.key, required this.item});
+  const NoAccountForm({super.key, required this.send, required this.receive});
 
   @override
   _NoAccountFormState createState() => _NoAccountFormState();
@@ -71,7 +72,7 @@ class _NoAccountFormState extends State<NoAccountForm> {
                         SizedBox(height: 20), // Add some spacing between the form and the button
                         ElevatedButton(
                           onPressed: () {
-                            _transfer(context, widget.item.accountNumber, int.parse(costController.text));
+                            _transfer(context, int.parse(costController.text));
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Colors.black87, // Background color
@@ -98,7 +99,7 @@ class _NoAccountFormState extends State<NoAccountForm> {
     );
   }
 
-  Future<void> _transfer(BuildContext context, String accountNumber, int transferCost) async {
+  Future<void> _transfer(BuildContext context, int transferCost) async {
     final String Url = "$baseUrl/transfer_money"; //이거 주소 맞나?
     final request = Uri.parse(Url);
     var headers = <String, String>{
@@ -107,8 +108,8 @@ class _NoAccountFormState extends State<NoAccountForm> {
 
     var body = {
       'transactionType': 'Transfer',
-      'senderAccountId': widget.item.id,
-      'receiverAccountNumber': accountNumber,
+      'senderAccountId': widget.send.id,
+      'receiverAccountNumber': widget.receive.accountNumber,
       'cost': transferCost
     };
 
@@ -131,12 +132,13 @@ class _NoAccountFormState extends State<NoAccountForm> {
           // Pop the two previous screens
           Navigator.of(context).pop();
           Navigator.of(context).pop();
-          Navigator.of(context).push(
+          Navigator.of(context).pop();
+          Navigator.of(context).pushReplacement(
             MaterialPageRoute(
               builder: (context) => SuccessScreen(
                 cost: transferCost,
-                receivedAcount: "${widget.item.accountNumber}",
-                sentAccount: accountNumber,
+                receivedAcount: widget.receive.accountNumber,
+                sentAccount: widget.send.accountNumber,
               ),
             ),
           );
@@ -157,12 +159,13 @@ class _NoAccountFormState extends State<NoAccountForm> {
           // Pop the two previous screens
           Navigator.of(context).pop();
           Navigator.of(context).pop();
-          Navigator.of(context).push(
+          Navigator.of(context).pop();
+          Navigator.of(context).pushReplacement(
             MaterialPageRoute(
               builder: (context) => FailScreen(
                 cost: transferCost,
-                receivedAccount: "${widget.item.accountNumber}",
-                sentAccount: accountNumber,
+                receivedAccount: widget.receive.accountNumber,
+                sentAccount: widget.send.accountNumber,
               ),
             ),
           );
