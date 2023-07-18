@@ -142,29 +142,58 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                       });
                                     },
                                     child: Card(
-                                      elevation: isSelected ? 4.0 : 2.0, // 선택된 카드는 그림자를 강조
+                                      elevation: isSelected ? 5.0 : 2.0, // 선택된 카드는 그림자를 강조
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(8.0),
                                       ),
                                       child: Container(
+                                        width: width * 0.9,
+                                        height: height * 0.25,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(8.0),
                                           image: isSelected
                                               ? DecorationImage(
-                                            image: AssetImage('assets/images/copymoney.gif'),
+                                            image: AssetImage('assets/images/afterselect.jpg') ,
                                             fit: BoxFit.cover,
                                           )
-                                              : null,
+                                              : DecorationImage(
+                                            image: AssetImage('assets/images/beforeselect.jpg') ,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
                                         padding: EdgeInsets.all(16.0),
                                         child: Column(
+                                          // mainAxisAlignment: ,
                                           children: [
-                                            CircleAvatar(
-                                              radius: 30.0,
-                                              child: Text('${account.accountNumber}'),
+                                            // CircleAvatar(
+                                            //   radius: 30.0,
+                                            //   child: Text('${account.accountNumber}'),
+                                            // ),
+                                            // SizedBox(height: 8.0),
+                                            Flexible(
+                                              flex:1,
+                                              child: Container(),
                                             ),
-                                            SizedBox(height: 8.0),
-                                            Text('Account: ${account.accountNumber}'),
+                                            Text(
+                                              '${account.balance}원',
+                                              style: TextStyle(
+                                                fontFamily: 'mainfont',
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20,
+                                                color: Colors.black,
+                                                // Add any other desired styles here
+                                              ),
+                                            ),
+                                            Text(
+                                                '매드뱅크계좌(${account.accountNumber.substring(account.accountNumber.length - 4)})',
+                                                style: TextStyle(
+                                                  fontFamily: 'mainfont',
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16,
+                                                  color: Colors.black,
+                                                  // Add any other desired styles here
+                                                ),
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -175,7 +204,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                             );
                           },
                         ),
-                        SizedBox(height: 16.0),
+                        // SizedBox(height: 16.0),
                       ],
                     ),
                   ),
