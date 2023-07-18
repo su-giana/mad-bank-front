@@ -42,10 +42,11 @@ class _SecondScreenState extends State<SecondScreen>
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(10, 15, 0, 40),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text("눈에 보이는 ATM"

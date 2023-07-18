@@ -12,6 +12,7 @@ import 'first_tab.dart';
 
 String baseUrl = 'http://127.0.0.1:80';
 
+
 class AtmForm extends StatefulWidget {
   final String transactionType;
   final Account item;
@@ -77,6 +78,7 @@ class _NoAccountFormState extends State<AtmForm> {
           context: context,
           builder: (context) => LoadingIndicator(), // Show the loading screen
           barrierDismissible: false, // Prevent user from dismissing the dialog
+
         );
 
         // Simulate a loading delay with Future.delayed
@@ -92,8 +94,8 @@ class _NoAccountFormState extends State<AtmForm> {
             MaterialPageRoute(
               builder: (context) => FailScreen(
                 cost: int.parse(cost),
-                receivedAccount: "${item.accountNumber}",
-                sentAccount: "${item.accountNumber}",
+                receivedAccountNumber: "${item.accountNumber}",
+                sentAccountNumber: "${item.accountNumber}",
               ),
             ),
           );

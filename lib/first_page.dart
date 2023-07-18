@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/first_tab.dart';
 import 'package:flutter_application_1/flex_screen.dart';
+import 'package:flutter_application_1/market.dart';
 import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
 import 'package:flutter_application_1/second_tab.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -44,7 +45,7 @@ class _FirstState extends State<FirstPage> {
   late final List<Widget> _widgetOptions = <Widget>[
     FirstTab(),
     SecondScreen(),
-    FlexScreen(),
+    Market(),
   ];
 
   int _selectedIndex = 0;
@@ -55,9 +56,10 @@ class _FirstState extends State<FirstPage> {
         children:[
           Scaffold(
             backgroundColor: Colors.white,
-            body: Padding(
-              padding: EdgeInsets.fromLTRB(0, deviceHeight*0.07, 0, 0),
-              child: LayoutBuilder(
+            // body: Padding(
+            //   padding: EdgeInsets.fromLTRB(0, deviceHeight*0.07, 0, 0),
+            //   child:
+              body: LayoutBuilder(
                 builder: (context, constraints) {
                   centerHeight = constraints.maxHeight;
                   centerWidth = constraints.maxWidth;
@@ -72,7 +74,7 @@ class _FirstState extends State<FirstPage> {
                   );
                 },
               ),
-            ),
+            // ),
             bottomNavigationBar: Container(
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 0, 0, 0),
@@ -106,8 +108,8 @@ class _FirstState extends State<FirstPage> {
                         text: 'ATM',
                       ),
                       GButton(
-                        icon: LineIcons.moneyBill,
-                        text: 'Pay',
+                        icon: LineIcons.store,
+                        text: 'Market',
                       ),
                     ],
                     selectedIndex: _selectedIndex,

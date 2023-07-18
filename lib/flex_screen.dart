@@ -26,7 +26,7 @@ class _FlexScreenState extends State<FlexScreen>{
 
   Future<void> getDataFromServer() async {
     String? userToken = await getJwtToken();
-    String url = 'http://172.19.176.1:8080/account_list';
+    String url = 'http://172.19.176.1:80/account_list';
 
     try {
       // 요청 헤더에 토큰을 추가합니다.

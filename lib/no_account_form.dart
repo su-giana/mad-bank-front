@@ -164,8 +164,8 @@ class _NoAccountFormState extends State<NoAccountForm> {
             MaterialPageRoute(
               builder: (context) => FailScreen(
                 cost: transferCost,
-                receivedAccount: widget.receive.accountNumber,
-                sentAccount: widget.send.accountNumber,
+                receivedAccountNumber: widget.receive.accountNumber,
+                sentAccountNumber: widget.send.accountNumber,
               ),
             ),
           );

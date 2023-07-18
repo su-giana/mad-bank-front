@@ -37,6 +37,15 @@ class _WithAccountFormState extends State<WithAccountForm> {
     //   context,
     //   MaterialPageRoute(builder: (context) => FailScreen(item: TransactionWithName(trans: Transaction(id:1, senderId:1, receiverId:1, transactionType: 'Success', cost: 1000, resultCode:'Success'), receiverName: "asdf", senderName: "qwer"))),
     // );
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => FailScreen(
+          cost:transferCost,
+          sentAccountNumber:widget.item.id.toString(), //큰일났어 비상사태...
+          receivedAccountNumber:accountNumber
+        ),
+      ),
+    );
   }
 
   @override
@@ -198,8 +207,8 @@ class _WithAccountFormState extends State<WithAccountForm> {
             MaterialPageRoute(
               builder: (context) => FailScreen(
                 cost: transferCost,
-                receivedAccount: "${widget.item.accountNumber}",
-                sentAccount: accountNumber,
+                receivedAccountNumber: "${widget.item.accountNumber}",
+                sentAccountNumber: accountNumber,
               ),
             ),
           );

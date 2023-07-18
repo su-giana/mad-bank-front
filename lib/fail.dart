@@ -7,10 +7,10 @@ import 'first_page.dart';
 
 class FailScreen extends StatelessWidget {
   final int cost;
-  final String sentAccount;
-  final String receivedAccount;
+  final String sentAccountNumber;
+  final String receivedAccountNumber;
 
-  const FailScreen({Key? key, required this.cost, required this.sentAccount, required this.receivedAccount}) : super(key: key);
+  const FailScreen({Key? key, required this.cost, required this.sentAccountNumber, required this.receivedAccountNumber}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +45,12 @@ class FailScreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                '송금자: ${sentAccount}',
+                '송금자: ${sentAccountNumber}',
                 style: TextStyle(fontFamily: "mainfont", fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
               ),
               SizedBox(height: 20),
               Text(
-                '입금자: ${receivedAccount}',
+                '입금자: ${receivedAccountNumber}',
                 style: TextStyle(fontFamily: "mainfont", fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
               ),
               SizedBox(height: 20),
