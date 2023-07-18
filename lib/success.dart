@@ -66,7 +66,7 @@ class SuccessScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => FirstPage()),
+                          MaterialPageRoute(builder: (context) => const FirstPage()),
                         );
                       },
                       child: Text('메인 화면으로 이동' ,style: TextStyle(fontSize: 30),),

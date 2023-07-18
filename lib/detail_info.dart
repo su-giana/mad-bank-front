@@ -1,12 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:animated_login/animated_login.dart';
-import 'package:flutter_application_1/compact_password.dart';
+import 'package:flutter_application_1/compact_password/compact_password_set.dart';
 import 'package:flutter_application_1/main.dart';
 import 'package:flutter_login/flutter_login.dart';
-import 'package:http/http.dart' as http;
 
-String baseUrl = 'http://127.0.0.1:80';
 
 
 class DetailPage extends StatefulWidget {
@@ -48,11 +46,7 @@ class _DetailPageState extends State<DetailPage>
   Future<void> _startAnimation(
       BuildContext context, String phone, String dob, String socialId) async {
     await Navigator.push(context, MaterialPageRoute(
-            builder: (context) => PasswordScreen()));
-    // await _signup(
-    //     context, widget.id, widget.password, widget.name, phone, dob, socialId);
-    // await Navigator.pushReplacement(context, MaterialPageRoute(
-    //     builder: (context) => LoginScreen()));
+            builder: (context) => PasswordScreen(phone, dob, socialId, widget.id, widget.password, widget.name)));
   }
 
   @override
@@ -153,7 +147,7 @@ class _DetailPageState extends State<DetailPage>
                           fontSize: 20.0, // Set the font size of the button text
                         ),
                       ),
-                      child: Text('최종 제출'),
+                      child: Text('등록하기'),
                     ),
                   ],
                 ),
@@ -166,38 +160,4 @@ class _DetailPageState extends State<DetailPage>
   }
 }
 
-Future<String> _signup(BuildContext context, String id, String pw,
-    String username, String phone, String dob, String socialId) async {
-  final String Url = "$baseUrl/signup";
-  final request = Uri.parse(Url);
-  var headers = <String, String>{
-    'Content-Type': 'application/json; charset=UTF-8',
-  };
-
-  var body = {
-    'signUpId': id,
-    'password': pw,
-    'name': username,
-    'phone': phone,
-    'dob': dob,
-    'nationalId': socialId
-  };
-
-  http.Response response;
-  try {
-    response = await http.post(request, headers: headers, body: json.encode(body));
-    if (response.statusCode == 200) {
-      await Future.delayed(const Duration(seconds: 2));
-      print('Signup completed!');
-      return "회원가입을 완료했습니다.";
-    } else {
-      print('Signup failed with status');
-      // return "서버와 연결 시도 중 문제가 발생했습니다.";
-      return "서버 문제일지도?";
-    }
-  } catch (error) {
-    print('error : $error');
-    return "서버와 연결 시도 중 문제가 발생했습니다.";
-  }
-}
 

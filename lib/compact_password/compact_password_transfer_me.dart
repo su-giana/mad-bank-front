@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/main.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-void main() {
-  runApp(PasswordScreen());
-}
+import '../first_page.dart';
 
-class PasswordScreen extends StatefulWidget {
+String baseUrl = 'http://127.0.0.1:80';
+
+class PasswordSelfTransferScreen extends StatefulWidget {
+  final String phone;
+  final String dob;
+  final String socialId;
+  final String id;
+  final String password;
+  final String name;
+
+  PasswordSelfTransferScreen(this.phone, this.dob, this.socialId, this.id, this.password, this.name);
+
   @override
   _PasswordScreenState createState() => _PasswordScreenState();
 }
 
-class _PasswordScreenState extends State<PasswordScreen> {
+class _PasswordScreenState extends State<PasswordSelfTransferScreen> {
   final int passwordLength = 6;
   String enteredPassword = '';
   bool isPasswordComplete = false;
@@ -31,12 +43,11 @@ class _PasswordScreenState extends State<PasswordScreen> {
   }
 
   // Function to handle form submission
-  void onSubmit() {
+  void onSubmit() async {
     if (isPasswordComplete) {
-      // You can access the 6-digit number as 'enteredPassword'
+      await _signup(context, widget.id, widget.password, widget.name, widget.phone, widget.dob, widget.socialId, enteredPassword);
       print('Entered 6-digit number: $enteredPassword');
-      // Do something with the 6-digit number here
-      // For example, you can use it for authentication or any other purpose
+      await Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyApp()));
     }
   }
 
@@ -64,10 +75,11 @@ class _PasswordScreenState extends State<PasswordScreen> {
       body: GestureDetector(
         onTap: handleTapOutside, // Handle taps outside the form
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start, // Align the Column to the top of the screen
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
+              padding: const EdgeInsets.fromLTRB(0, 50, 0, 0), // Adjust the top padding
               child: Visibility(
                 visible: isPasswordComplete,
                 child: Container(
@@ -100,7 +112,6 @@ class _PasswordScreenState extends State<PasswordScreen> {
                   ),
                 ),
               ),
-
             ),
             Text(
               "비밀번호를 입력해주세요",
@@ -157,20 +168,52 @@ class _PasswordScreenState extends State<PasswordScreen> {
                     }
                   });
                 },
-                onFieldSubmitted: (_) {
-                  onSubmit(); // Handle submission when the user taps done on the keyboard
-                },
+                onFieldSubmitted: (_) {},
                 keyboardType: TextInputType.number,
                 maxLength: passwordLength,
                 cursorColor: Colors.white, // Set the cursor color to white (hides the cursor)
                 obscureText: true, // To hide the entered numbers with dots
               ),
             ),
-            SizedBox(height: 20),
-
           ],
         ),
       ),
     );
+  }
+
+  Future<String> _signup(BuildContext context, String id, String pw, String username, String phone, String dob, String socialId, String compactPassword) async {
+    final String Url = "$baseUrl/signup";
+    final request = Uri.parse(Url);
+    var headers = <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    };
+
+    var body = {
+      'signUpId': id,
+      'password': pw,
+      'name': username,
+      'phone': phone,
+      'dob': dob,
+      'nationalId': socialId,
+      'compactPassword': compactPassword
+    };
+
+    http.Response response;
+    try {
+      response = await http.post(request, headers: headers, body: json.encode(body));
+      if (response.statusCode == 200) {
+        await Future.delayed(const Duration(seconds: 2));
+
+        print('Signup completed!');
+        return "회원가입을 완료했습니다.";
+      } else {
+        print('Signup failed with status');
+        // return "서버와 연결 시도 중 문제가 발생했습니다.";
+        return "서버 문제일지도?";
+      }
+    } catch (error) {
+      print('error : $error');
+      return "서버와 연결 시도 중 문제가 발생했습니다.";
+    }
   }
 }
