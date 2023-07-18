@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/atm_form.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -26,7 +27,7 @@ class _FlexScreenState extends State<FlexScreen>{
 
   Future<void> getDataFromServer() async {
     String? userToken = await getJwtToken();
-    String url = 'http://172.19.176.1:80/account_list';
+    String url = '$baseUrl/account_list';
 
     try {
       // 요청 헤더에 토큰을 추가합니다.
