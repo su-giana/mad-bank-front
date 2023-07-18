@@ -5,6 +5,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/first_tab.dart';
+import 'package:flutter_application_1/flex_screen.dart';
 import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
 import 'package:flutter_application_1/second_tab.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -43,6 +44,7 @@ class _FirstState extends State<FirstPage> {
   late final List<Widget> _widgetOptions = <Widget>[
     FirstTab(),
     SecondScreen(),
+    FlexScreen(),
   ];
 
   int _selectedIndex = 0;
@@ -90,7 +92,7 @@ class _FirstState extends State<FirstPage> {
                     gap: 8,
                     activeColor: const Color.fromARGB(255, 0, 0, 0),
                     iconSize: 24,
-                    padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                     duration: const Duration(milliseconds: 400),
                     tabBackgroundColor: Colors.grey[100]!,
                     color: const Color.fromARGB(255, 255, 255, 255),
@@ -102,6 +104,10 @@ class _FirstState extends State<FirstPage> {
                       GButton(
                         icon: LineIcons.wallet,
                         text: 'ATM',
+                      ),
+                      GButton(
+                        icon: LineIcons.moneyBill,
+                        text: 'Pay',
                       ),
                     ],
                     selectedIndex: _selectedIndex,
