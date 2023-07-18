@@ -11,7 +11,7 @@ import '../first_tab.dart';
 import '../loading_indicator.dart';
 import '../success.dart';
 
-String baseUrl = 'http://127.0.0.1:80';
+String baseUrl = 'http://127.0.0.1:8080';
 
 class PasswordTransferScreen extends StatefulWidget {
   final Account receivedItem;
@@ -191,7 +191,7 @@ class _PasswordScreenState extends State<PasswordTransferScreen> {
     var body = {
       'transactionType': 'Transfer',
       'senderAccountId': receivedItem.id,
-      'receiverAccountNumber': receivedItem.id,
+      'receiverAccountNumber': widget.sentAccountNumber,
       'cost': transferCost,
       'compactPassword': compactPassword
     };
