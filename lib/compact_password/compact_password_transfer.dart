@@ -191,7 +191,7 @@ class _PasswordScreenState extends State<PasswordTransferScreen> {
     var body = {
       'transactionType': 'Transfer',
       'senderAccountId': receivedItem.id,
-      'receiverAccountNumber': accountNumber,
+      'receiverAccountNumber': receivedItem.id,
       'cost': transferCost,
       'compactPassword': compactPassword
     };
