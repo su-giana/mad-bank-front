@@ -27,6 +27,7 @@ class _FlexScreenState extends State<FlexScreen>{
 
   Future<void> getDataFromServer() async {
     String? userToken = await getJwtToken();
+
     String url = '$baseUrl/account_list';
 
     try {
