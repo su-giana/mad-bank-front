@@ -1,13 +1,21 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
 import 'package:flutter_application_1/success.dart';
 
+import 'fail.dart';
 import 'first_tab.dart';
+import 'loading_indicator.dart';
+import 'package:http/http.dart' as http;
+
+String baseUrl = 'http://127.0.0.1:80';
 
 class NoAccountForm extends StatefulWidget {
-  final Account item;
+  final Account send;
+  final Account receive;
 
-  const NoAccountForm({super.key, required this.item});
+  const NoAccountForm({super.key, required this.send, required this.receive});
 
   @override
   _NoAccountFormState createState() => _NoAccountFormState();
@@ -64,10 +72,7 @@ class _NoAccountFormState extends State<NoAccountForm> {
                         SizedBox(height: 20), // Add some spacing between the form and the button
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => SuccessScreen(cost: int.parse(costController.text), sentAccount: widget.item.id.toString(), receivedAcount: widget.item.id.toString(),)),
-                            );
+                            _transfer(context, int.parse(costController.text));
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Colors.black87, // Background color
@@ -92,5 +97,83 @@ class _NoAccountFormState extends State<NoAccountForm> {
         ),
       ),
     );
+  }
+
+  Future<void> _transfer(BuildContext context, int transferCost) async {
+    final String Url = "$baseUrl/transfer_money"; //이거 주소 맞나?
+    final request = Uri.parse(Url);
+    var headers = <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    };
+
+    var body = {
+      'transactionType': 'Transfer',
+      'senderAccountId': widget.send.id,
+      'receiverAccountNumber': widget.receive.accountNumber,
+      'cost': transferCost
+    };
+
+    http.Response response;
+    try {
+      response = await http.post(request, headers: headers, body: json.encode(body));
+      if (response.statusCode == 200) {
+        showDialog(
+          context: context,
+          builder: (context) => LoadingIndicator(), // Show the loading screen
+          barrierDismissible: false, // Prevent user from dismissing the dialog
+        );
+
+        // Simulate a loading delay with Future.delayed
+        // You can replace this with your actual loading logic
+        Future.delayed(Duration(seconds: 2), () {
+          // Pop the loading screen
+          Navigator.of(context).pop();
+
+          // Pop the two previous screens
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => SuccessScreen(
+                cost: transferCost,
+                receivedAcount: widget.receive.accountNumber,
+                sentAccount: widget.send.accountNumber,
+              ),
+            ),
+          );
+        });
+      } else {
+        showDialog(
+          context: context,
+          builder: (context) => LoadingIndicator(), // Show the loading screen
+          barrierDismissible: false, // Prevent user from dismissing the dialog
+        );
+
+        // Simulate a loading delay with Future.delayed
+        // You can replace this with your actual loading logic
+        Future.delayed(Duration(seconds: 2), () {
+          // Pop the loading screen
+          Navigator.of(context).pop();
+
+          // Pop the two previous screens
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => FailScreen(
+                cost: transferCost,
+                receivedAccountNumber: widget.receive.accountNumber,
+                sentAccountNumber: widget.send.accountNumber,
+              ),
+            ),
+          );
+        });
+      }
+    } catch (error) {
+      print('error : $error');
+    }
+
   }
 }

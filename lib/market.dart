@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'first_page.dart';
 
 String backgroundImagePath = 'assets/images/loginBackgroundImage.jpeg';
-String baseUrl = "http://127.0.0.1:8080";
+String baseUrl = "http://127.0.0.1:80";
 
 final defaultTextStyle = TextStyle(
   fontFamily: 'mainfont',
@@ -301,7 +301,7 @@ class Product {
 class Account {
   final int id;
   final int userId;
-  final int accountNumber;
+  final String accountNumber;
   final int balance;
 
   Account({

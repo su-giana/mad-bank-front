@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/loading_indicator.dart';
 import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
 import 'package:flutter_application_1/success.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,7 +10,8 @@ import 'package:http/http.dart' as http;
 import 'fail.dart';
 import 'first_tab.dart';
 
-String baseUrl = 'http://127.0.0.1:8080';
+String baseUrl = 'http://127.0.0.1:80';
+
 
 class AtmForm extends StatefulWidget {
   final String transactionType;
@@ -37,24 +39,67 @@ class _NoAccountFormState extends State<AtmForm> {
     var body = {
       'transactionType': transactionType,
       'senderAccountId': item.id,
-      'receiverAccountId': item.id,
+      'receiverAccountNumber': item.accountNumber,
       'cost': int.parse(cost)
     };
 
     var response = await http.post(request, headers:headers, body: json.encode(body));
     if(response.statusCode==200)
       {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SuccessScreen(cost: int.parse(cost), receivedAcount: "${item.accountNumber}", sentAccount: "${item.accountNumber}")),
+        showDialog(
+          context: context,
+          builder: (context) => LoadingIndicator(), // Show the loading screen
+          barrierDismissible: false, // Prevent user from dismissing the dialog
         );
+
+        // Simulate a loading delay with Future.delayed
+        // You can replace this with your actual loading logic
+        Future.delayed(Duration(seconds: 2), () {
+          // Pop the loading screen
+          Navigator.of(context).pop();
+
+          // Pop the two previous screens
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => SuccessScreen(
+                cost: int.parse(cost),
+                receivedAcount: "${item.accountNumber}",
+                sentAccount: "${item.accountNumber}",
+              ),
+            ),
+          );
+        });
       }
     else
       {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => FailScreen(cost: int.parse(cost), receivedAccountNumber: "${item.accountNumber}", sentAccountNumber: "${item.accountNumber}")),
+        showDialog(
+          context: context,
+          builder: (context) => LoadingIndicator(), // Show the loading screen
+          barrierDismissible: false, // Prevent user from dismissing the dialog
+
         );
+
+        // Simulate a loading delay with Future.delayed
+        // You can replace this with your actual loading logic
+        Future.delayed(Duration(seconds: 2), () {
+          // Pop the loading screen
+          Navigator.of(context).pop();
+
+          // Pop the two previous screens
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => FailScreen(
+                cost: int.parse(cost),
+                receivedAccountNumber: "${item.accountNumber}",
+                sentAccountNumber: "${item.accountNumber}",
+              ),
+            ),
+          );
+        });
       }
   }
 

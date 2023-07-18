@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:animated_login/animated_login.dart';
+import 'package:flutter_application_1/compact_password.dart';
 import 'package:flutter_application_1/main.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:http/http.dart' as http;
 
-String baseUrl = 'http://127.0.0.1:8080';
+String baseUrl = 'http://127.0.0.1:80';
+
 
 class DetailPage extends StatefulWidget {
   late final String id;
@@ -45,10 +47,12 @@ class _DetailPageState extends State<DetailPage>
 
   Future<void> _startAnimation(
       BuildContext context, String phone, String dob, String socialId) async {
-    await _signup(
-        context, widget.id, widget.password, widget.name, phone, dob, socialId);
-    await Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => LoginScreen()));
+    await Navigator.push(context, MaterialPageRoute(
+            builder: (context) => PasswordScreen()));
+    // await _signup(
+    //     context, widget.id, widget.password, widget.name, phone, dob, socialId);
+    // await Navigator.pushReplacement(context, MaterialPageRoute(
+    //     builder: (context) => LoginScreen()));
   }
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/first_page.dart';
 import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
 
 class SuccessScreen extends StatelessWidget {
@@ -18,17 +19,20 @@ class SuccessScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.blue, width: 2),
-                ),
-                child: Icon(
-                  Icons.check,
-                  color: Colors.blue,
-                  size: 125,
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 200, 0, 0),
+                child: Container(
+                  width: 150,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.blue, width: 2),
+                  ),
+                  child: Icon(
+                    Icons.check,
+                    color: Colors.blue,
+                    size: 125,
+                  ),
                 ),
               ),
               SizedBox(height: 30),
@@ -52,6 +56,24 @@ class SuccessScreen extends StatelessWidget {
                 style: TextStyle(fontFamily: "mainfont", fontSize: 20, color: Colors.grey),
               ),
               SizedBox(height: 5),
+              Expanded( // Add Expanded to push the button to the bottom
+                child: Align(
+                  alignment: Alignment.bottomCenter, // Align the button at the bottom center
+                  child: Container(
+                    width: double.infinity, // Take full width of the screen
+                    height: 80,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => FirstPage()),
+                        );
+                      },
+                      child: Text('메인 화면으로 이동' ,style: TextStyle(fontSize: 30),),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

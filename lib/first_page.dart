@@ -5,6 +5,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/first_tab.dart';
+import 'package:flutter_application_1/flex_screen.dart';
 import 'package:flutter_application_1/market.dart';
 import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
 import 'package:flutter_application_1/second_tab.dart';
@@ -18,7 +19,7 @@ import 'package:tuple/tuple.dart';
 import 'package:intl/intl.dart';
 
 String backgroundImagePath = 'assets/images/loginBackgroundImage.jpeg';
-String baseUrl = "http://127.0.0.1:8080";
+String baseUrl = "http://127.0.0.1:80";
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -93,7 +94,7 @@ class _FirstState extends State<FirstPage> {
                     gap: 8,
                     activeColor: const Color.fromARGB(255, 0, 0, 0),
                     iconSize: 24,
-                    padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                     duration: const Duration(milliseconds: 400),
                     tabBackgroundColor: Colors.grey[100]!,
                     color: const Color.fromARGB(255, 255, 255, 255),
