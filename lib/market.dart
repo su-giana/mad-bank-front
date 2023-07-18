@@ -138,106 +138,117 @@ class Market extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Market'),
-      // ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 15, 0, 40),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "눈에 보이는 ATM",
-                  style: TextStyle(
-                    fontFamily: "mainboldfont",
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 0, 20),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "몰캠마켓🥕 ㅁㅋㅁㅋ v 2.0.0 ",
+                      style: TextStyle(
+                        fontFamily: "mainboldfont",
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              "이 페이지는 상품 목록을 보여주는 페이지입니다.",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 20),
-            Expanded(
-              child: FutureBuilder<List<Product>>(
-                future: getProductList(),
-                builder: (BuildContext context, AsyncSnapshot<List<Product>> snapshot) {
-                  if (snapshot.hasData) {
-                    List<Product> products = snapshot.data!;
-                    return GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        childAspectRatio: 0.75,
-                      ),
-                      itemCount: products.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final product = products[index];
-                        return GestureDetector(
-                          onTap: () async {
-                            final userAccounts = await getUserAccounts(); // Fetch user accounts
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => PaymentScreen(product: product, userAccounts: userAccounts),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 0, 20),
+                  child: Text(
+                    "🐼 주요 상품 모아보기",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                FutureBuilder<List<Product>>(
+                  future: getProductList(),
+                  builder: (BuildContext context, AsyncSnapshot<List<Product>> snapshot) {
+                    if (snapshot.hasData) {
+                      List<Product> products = snapshot.data!;
+                      return GridView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 0.75,
+                        ),
+                        itemCount: products.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final product = products[index];
+                          return GestureDetector(
+                            onTap: () async {
+                              final userAccounts = await getUserAccounts(); // Fetch user accounts
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PaymentScreen(product: product, userAccounts: userAccounts),
+                                ),
+                              );
+                            },
+                            child: Card(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.network(
+                                    product.imageUrl,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      product.name,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12.0,
+                                        color: Color(0xFF111b1f),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                    child: Text(
+                                      '${product.price}원',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xFF05090a),                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            );
-                          },
-                          child: Card(
-                            child: Column(
-                              children: [
-                                Image.network(
-                                  product.imageUrl,
-                                  fit: BoxFit.cover,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    product.name,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                  child: Text(
-                                    'Price: ${product.price}',
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                ),
-                              ],
                             ),
-                          ),
-                        );
-                      },
-                    );
-                  } else if (snapshot.hasError) {
-                    return Text('Error: ${snapshot.error}');
-                  } else {
-                    return Center(child: CircularProgressIndicator());
-                  }
-                },
-              ),
+                          );
+                        },
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text('Error: ${snapshot.error}');
+                    } else {
+                      return Center(child: CircularProgressIndicator());
+                    }
+                  },
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
+
 }
+
 
 class Product {
   final int id;
