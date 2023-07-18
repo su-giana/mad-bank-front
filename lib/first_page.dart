@@ -55,9 +55,10 @@ class _FirstState extends State<FirstPage> {
         children:[
           Scaffold(
             backgroundColor: Colors.white,
-            body: Padding(
-              padding: EdgeInsets.fromLTRB(0, deviceHeight*0.07, 0, 0),
-              child: LayoutBuilder(
+            // body: Padding(
+            //   padding: EdgeInsets.fromLTRB(0, deviceHeight*0.07, 0, 0),
+            //   child:
+              body: LayoutBuilder(
                 builder: (context, constraints) {
                   centerHeight = constraints.maxHeight;
                   centerWidth = constraints.maxWidth;
@@ -72,7 +73,7 @@ class _FirstState extends State<FirstPage> {
                   );
                 },
               ),
-            ),
+            // ),
             bottomNavigationBar: Container(
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 0, 0, 0),
