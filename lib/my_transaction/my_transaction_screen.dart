@@ -78,6 +78,7 @@ class _MyTransactionScreenState extends State<MyTransactionScreen>{
     String? userToken = await getJwtToken();
     String url = '$baseUrl/consume_list?account=${widget.item.id}';
 
+
     try {
       Map<String, String> headers = {
         'Authorization': "Bearer $userToken"

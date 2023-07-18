@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 
 String baseUrl = 'http://127.0.0.1:80';
 
+
 class DetailPage extends StatefulWidget {
   late final String id;
   late final String password;

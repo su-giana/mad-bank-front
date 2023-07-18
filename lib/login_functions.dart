@@ -9,7 +9,6 @@ import 'dialog_builders.dart';
 
 String baseUrl = "http://127.0.0.1:80";
 
-
 class LoginFunctions {
   const LoginFunctions(this.context);
   final BuildContext context;
