@@ -73,7 +73,7 @@ class _NoAccountFormState extends State<NoAccountForm> {
                         SizedBox(height: 20), // Add some spacing between the form and the button
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => PasswordTransferScreen(receivedItem: widget.send, sentAccountNumber: widget.receive.accountNumber, cost: int.parse(costController.text))));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => PasswordTransferScreen(receivedNumber: widget.receive.accountNumber, sentItem: widget.send, cost: int.parse(costController.text))));
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Colors.black87, // Background color

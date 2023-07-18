@@ -14,11 +14,11 @@ import '../success.dart';
 String baseUrl = 'http://127.0.0.1:8080';
 
 class PasswordTransferScreen extends StatefulWidget {
-  final Account receivedItem;
-  final String sentAccountNumber;
+  final Account sentItem;
+  final String receivedNumber;
   final int cost;
 
-  const PasswordTransferScreen({super.key, required this.receivedItem, required this.sentAccountNumber, required this.cost });
+  const PasswordTransferScreen({super.key, required this.sentItem, required this.receivedNumber, required this.cost });
 
   @override
   _PasswordScreenState createState() => _PasswordScreenState();
@@ -47,7 +47,7 @@ class _PasswordScreenState extends State<PasswordTransferScreen> {
   // Function to handle form submission
   void onSubmit() async {
     if (isPasswordComplete) {
-      await _transfer(context, widget.receivedItem ,widget.sentAccountNumber, widget.cost, enteredPassword);
+      await _transfer(context, widget.receivedNumber ,widget.sentItem, widget.cost, enteredPassword);
     }
   }
 
@@ -181,17 +181,20 @@ class _PasswordScreenState extends State<PasswordTransferScreen> {
     );
   }
 
-  Future<void> _transfer(BuildContext context, Account receivedItem, String accountNumber, int transferCost, String compactPassword) async {
+  Future<void> _transfer(BuildContext context, String receivedNumber, Account sentItem, int transferCost, String compactPassword) async {
     final String Url = "$baseUrl/transfer_money"; //이거 주소 맞나?
+
+    final String? token = await getJwtToken();
     final request = Uri.parse(Url);
     var headers = <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
+      'Authorization': 'Bearer $token'
     };
 
     var body = {
       'transactionType': 'Transfer',
-      'senderAccountId': receivedItem.id,
-      'receiverAccountNumber': widget.sentAccountNumber,
+      'senderAccountId': sentItem.id,
+      'receiverAccountNumber': receivedNumber,
       'cost': transferCost,
       'compactPassword': compactPassword
     };
@@ -219,8 +222,8 @@ class _PasswordScreenState extends State<PasswordTransferScreen> {
             MaterialPageRoute(
               builder: (context) => SuccessScreen(
                 cost: transferCost,
-                receivedAcount: receivedItem.accountNumber,
-                sentAccount: accountNumber,
+                receivedAcount: receivedNumber,
+                sentAccount: sentItem.accountNumber,
               ),
             ),
           );
@@ -245,8 +248,8 @@ class _PasswordScreenState extends State<PasswordTransferScreen> {
             MaterialPageRoute(
               builder: (context) => FailScreen(
                 cost: transferCost,
-                receivedAccountNumber: receivedItem.accountNumber,
-                sentAccountNumber: accountNumber,
+                receivedAccountNumber: receivedNumber,
+                sentAccountNumber: sentItem.accountNumber,
               ),
             ),
           );

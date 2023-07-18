@@ -33,8 +33,7 @@ class _WithAccountFormState extends State<WithAccountForm> {
   final _transferCostController = TextEditingController();
 
   Future<void> _startAnimation(BuildContext context, String accountNumber, int transferCost) async {
-    // await _transfer(context, accountNumber, transferCost);
-    await Navigator.push(context, MaterialPageRoute(builder: (context) => PasswordTransferScreen(receivedItem: widget.item, sentAccountNumber: accountNumber, cost: transferCost)));
+    await Navigator.push(context, MaterialPageRoute(builder: (context) => PasswordTransferScreen(sentItem: widget.item, receivedNumber: accountNumber, cost: transferCost)));
   }
 
   @override

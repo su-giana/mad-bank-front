@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		blDq+AIg/Rmi6ZUmk/kvYexwOwg=
+		3jj4lUUq6a4qZwCLlTL634jm+io=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,15 +54,15 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		F4bOm11JwhCMW0z2TCThgorPxXI=
+		IF3FDsrtG0Hyn726AvhKkgcixt8=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
-		7ha7BfEmd0lhb7a/aQuHjhFpiZs=
+		h8BtviQanTkkObPjSJKexC08N3s=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		H57T7Od4OmYIryfaoBCLsUJsjiw=
+		1OxJSrFYaRX4w5FmNq97jD6tANU=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -83,6 +83,10 @@
 		<key>Frameworks/App.framework/flutter_assets/assets/images/banklogo.png</key>
 		<data>
 		0LmGiM/fFcGQeSD7av6Iyc4AHWw=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/compactpass.gif</key>
+		<data>
+		QXXfHeMcBSZUOt+ifpK2sPqJ2fg=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/copymoney.gif</key>
 		<data>
@@ -118,7 +122,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		YY6a/3M6tAScHWOhdzlQqqoXyPM=
+		XGVn62fBPLVFN/BC9PmY7EAuFL0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -497,7 +501,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TlrFjnTE3W00dpEBx+cUVkaqMkK87KB4Q3n/b4QTVPQ=
+			SyekL9ygeym6UUbpyM4i2FTuJcSnq47L0JLsuleurSw=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -511,21 +515,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IGLiV8fGaJZ5GaAK8WsDsUbwJYBPV1VB7BzqkwDg1Us=
+			avJ07MhXkE41HTwmsJD9dFNiIq8WMsOEq8eoxcNZsTU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hdtmrw3RP4CoYym8VxCpwLe+hj/bYeR/tf6cK9UVYTg=
+			13u0rFx0R8MBfP1BUF1NF2EnL/tiha5WLaE/BXgMPc0=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			caA0XlobppItRVz4hhPRotiG0YMco2IkRWp/d0ZnQaw=
+			aiGaOMM0fAbAuQF9Zqf3q6yvWfWwh79bKbl4dGJ4bWE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -561,6 +565,13 @@
 			<key>hash2</key>
 			<data>
 			j2SA2fpsr3wa6Ntwi7VzD4kocNQwMZ18ff8fctBs+LE=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/compactpass.gif</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			OVWcdPOUYCG4TTa6oKQFG6UXcnckco1Y+WoIdj6l4Qc=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/copymoney.gif</key>
@@ -623,7 +634,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LkPpU2AwJp15FTWT/xMFLGE0ji9AxOZ5RJ7MPsrme/s=
+			tzK5sSU+VinXQDdNa8lxyweLmItCMiJ8xaWkFz/gwXc=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

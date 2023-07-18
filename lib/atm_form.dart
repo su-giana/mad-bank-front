@@ -1,12 +1,14 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/compact_password/compact_password_transfer.dart';
 import 'package:flutter_application_1/loading_indicator.dart';
 import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart';
 import 'package:flutter_application_1/success.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
+import 'compact_password/compact_password_self.dart';
 import 'fail.dart';
 import 'first_tab.dart';
 
@@ -26,82 +28,6 @@ class AtmForm extends StatefulWidget {
 class _NoAccountFormState extends State<AtmForm> {
   bool _showForm = true;
   TextEditingController costController = TextEditingController();
-
-  Future<void> submitTransaction(String transactionType, Account item, String cost) async
-  {
-    final request  = Uri.parse("$baseUrl/my_transfer");
-    final jwtToken = await getJwtToken();
-    final headers = <String, String>{
-      'Content-Type': 'application/json; charset=UTF-8',
-      'Authorization': 'Bearer $jwtToken'
-    };
-
-    var body = {
-      'transactionType': transactionType,
-      'senderAccountId': item.id,
-      'receiverAccountNumber': item.accountNumber,
-      'cost': int.parse(cost)
-    };
-
-    var response = await http.post(request, headers:headers, body: json.encode(body));
-    if(response.statusCode==200)
-      {
-        showDialog(
-          context: context,
-          builder: (context) => LoadingIndicator(), // Show the loading screen
-          barrierDismissible: false, // Prevent user from dismissing the dialog
-        );
-
-        // Simulate a loading delay with Future.delayed
-        // You can replace this with your actual loading logic
-        Future.delayed(Duration(seconds: 2), () {
-          // Pop the loading screen
-          Navigator.of(context).pop();
-
-          // Pop the two previous screens
-          Navigator.of(context).pop();
-          Navigator.of(context).pop();
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => SuccessScreen(
-                cost: int.parse(cost),
-                receivedAcount: "${item.accountNumber}",
-                sentAccount: "${item.accountNumber}",
-              ),
-            ),
-          );
-        });
-      }
-    else
-      {
-        showDialog(
-          context: context,
-          builder: (context) => LoadingIndicator(), // Show the loading screen
-          barrierDismissible: false, // Prevent user from dismissing the dialog
-
-        );
-
-        // Simulate a loading delay with Future.delayed
-        // You can replace this with your actual loading logic
-        Future.delayed(Duration(seconds: 2), () {
-          // Pop the loading screen
-          Navigator.of(context).pop();
-
-          // Pop the two previous screens
-          Navigator.of(context).pop();
-          Navigator.of(context).pop();
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => FailScreen(
-                cost: int.parse(cost),
-                receivedAccountNumber: "${item.accountNumber}",
-                sentAccountNumber: "${item.accountNumber}",
-              ),
-            ),
-          );
-        });
-      }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -150,7 +76,7 @@ class _NoAccountFormState extends State<AtmForm> {
                         SizedBox(height: 20), // Add some spacing between the form and the button
                         ElevatedButton(
                           onPressed: () async {
-                            await submitTransaction(widget.transactionType, widget.item, costController.text);
+                            await Navigator.push(context, MaterialPageRoute(builder: (context) => PasswordSelfTransferScreen(transactionType: widget.transactionType, receivedItem: widget.item, cost: int.parse(costController.text))));
 
                           },
                           style: ElevatedButton.styleFrom(
