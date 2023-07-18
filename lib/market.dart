@@ -271,7 +271,7 @@ class Product {
 class Account {
   final int id;
   final int userId;
-  final int accountNumber;
+  final String accountNumber;
   final int balance;
 
   Account({
