@@ -61,6 +61,7 @@ class Market extends StatelessWidget {
   Widget buildPaymentForm(BuildContext context, Product product, List<Account> userAccounts) {
     final selectedAccount = ValueNotifier<Account?>(null);
 
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -137,6 +138,8 @@ class Market extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: ListView(
         children: [
@@ -201,9 +204,25 @@ class Market extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Image.network(
-                                    product.imageUrl,
-                                    fit: BoxFit.cover,
+                                  // Image.network(
+                                  //   product.imageUrl,
+                                  //   fit: BoxFit.cover,
+                                  // ),
+                                  Center(
+                                    child: Container(
+                                      width: width * 0.4,
+                                      height: width * 0.4,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(8.0),
+                                        child: AspectRatio(
+                                          aspectRatio: 1, // 가로와 세로 크기가 동일한 정사각형 비율
+                                          child: Image.network(
+                                            product.imageUrl,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
