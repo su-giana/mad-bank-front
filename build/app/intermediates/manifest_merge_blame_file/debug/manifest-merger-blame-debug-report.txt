@@ -32,7 +32,7 @@
 25-->[androidx.core:core:1.8.0] /Users/suzynoh/.gradle/caches/transforms-3/7ec5be80696a7162dbc5d34aefb8a9f1/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
 26        android:debuggable="true"
 27        android:icon="@mipmap/launcher_icon"
-28        android:label="flutter_application_1"
+28        android:label="madbank"
 29        android:usesCleartextTraffic="true" >
 30        <activity
 31            android:name="com.example.flutter_application_1.MainActivity"

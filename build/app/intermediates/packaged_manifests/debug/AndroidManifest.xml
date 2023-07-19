@@ -25,7 +25,7 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/launcher_icon"
-        android:label="flutter_application_1"
+        android:label="madbank"
         android:usesCleartextTraffic="true" >
         <activity
             android:name="com.example.flutter_application_1.MainActivity"
