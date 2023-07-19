@@ -19,7 +19,7 @@ import 'package:tuple/tuple.dart';
 import 'package:intl/intl.dart';
 
 String backgroundImagePath = 'assets/images/loginBackgroundImage.jpeg';
-String baseUrl = "http://172.10.5.135:80:";
+String baseUrl = "http://172.10.5.135:80";
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});

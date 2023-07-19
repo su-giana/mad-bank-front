@@ -18,6 +18,7 @@ class PasswordSelfTransferScreen extends StatefulWidget {
   final Account receivedItem;
   final int cost;
 
+
   const PasswordSelfTransferScreen({super.key, required this.transactionType, required this.receivedItem, required this.cost });
 
   @override
