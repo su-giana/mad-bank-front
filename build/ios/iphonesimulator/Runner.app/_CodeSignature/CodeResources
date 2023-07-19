@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		3jj4lUUq6a4qZwCLlTL634jm+io=
+		tBLaNcYubZ5G7h6srGCmbwS4dYA=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,15 +54,15 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		IF3FDsrtG0Hyn726AvhKkgcixt8=
+		F8V/juJh/+hMesMDsBh/bcjt3oo=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
-		h8BtviQanTkkObPjSJKexC08N3s=
+		EGIUxJIl3A4FUpYxEhm9F6mkAZM=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		1OxJSrFYaRX4w5FmNq97jD6tANU=
+		JrXsEc65D4vzjgy8974auVZLLVI=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
-		uETDrzA/7i8PjJzj5bDZMrpsJIs=
+		//wCPM0WQ61Nq6vI+qkZqBgIODc=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/fonts/mainboldfont.ttf</key>
 		<data>
@@ -80,9 +80,17 @@
 		<data>
 		TKvmyw6nn8veGnZ/XRkvhM8t+s0=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/afterselect.jpg</key>
+		<data>
+		Av6kmFp9lkpWIFB6Y5NxD3RghCU=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/banklogo.png</key>
 		<data>
 		0LmGiM/fFcGQeSD7av6Iyc4AHWw=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/beforeselect.jpg</key>
+		<data>
+		Yk5q1AuSdrA00/AczUqzVnM2PMI=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/compactpass.gif</key>
 		<data>
@@ -122,7 +130,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		XGVn62fBPLVFN/BC9PmY7EAuFL0=
+		butGFNlT+4o6kxvu2QaTn31LJHI=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -416,6 +424,18 @@
 		<data>
 		H/Osk1yo8uEkpn0gfN03K+78V3g=
 		</data>
+		<key>Frameworks/webview_flutter_wkwebview.framework/Info.plist</key>
+		<data>
+		ud9JwDXU4mm2y/kffm7/9v7RYdU=
+		</data>
+		<key>Frameworks/webview_flutter_wkwebview.framework/_CodeSignature/CodeResources</key>
+		<data>
+		NefdxybbquePYJV/K/nWLE2ibjs=
+		</data>
+		<key>Frameworks/webview_flutter_wkwebview.framework/webview_flutter_wkwebview</key>
+		<data>
+		0qWLfj0yabNuIyNK1e3mWsER0Gw=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		KSqKrOqURRIVeMPub3EAHbRNUAU=
@@ -501,7 +521,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SyekL9ygeym6UUbpyM4i2FTuJcSnq47L0JLsuleurSw=
+			r0sqoCQmR/QzlRqOmeum3sWg7MO+xUDerD+hG3p9++U=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -515,21 +535,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			avJ07MhXkE41HTwmsJD9dFNiIq8WMsOEq8eoxcNZsTU=
+			XdgV2uwvvKqFPZ5ozUILZJWYRAMXlclcG6lnaIOM1/g=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			13u0rFx0R8MBfP1BUF1NF2EnL/tiha5WLaE/BXgMPc0=
+			ZuZAWd86QUgJ2aRc8LC2D1CbBReIo6Qfxd5HMtyh96Q=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aiGaOMM0fAbAuQF9Zqf3q6yvWfWwh79bKbl4dGJ4bWE=
+			eet1GzKhRN18tYXi3nQ828Lw54fnHsctoc7XYFJxtow=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -543,7 +563,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ij7006/dfim1ZPKc/zN5bPUPUQgG5RDQy0WHY3QIPn0=
+			VdGq4Xy75i2DhuBSf6p3f80X1n7ub/M0C5nuIYd8tjo=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/fonts/mainboldfont.ttf</key>
@@ -560,11 +580,25 @@
 			m4cncxNOLk2MCxcCEmZ4ZXbbBshD7eDQtSOyFKRQdWw=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/afterselect.jpg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			iSmsBQCSXf7YgtiQNRNtLdmCl6juYMMHliWUc7BTaBU=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/banklogo.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			j2SA2fpsr3wa6Ntwi7VzD4kocNQwMZ18ff8fctBs+LE=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/beforeselect.jpg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			qLFVgobGF7bGMxp/QPWygQ/7XuAGWBV6gd1NhPVNFBQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/compactpass.gif</key>
@@ -634,7 +668,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tzK5sSU+VinXQDdNa8lxyweLmItCMiJ8xaWkFz/gwXc=
+			W2oVc2usvHq0hB4eLXZ9tIA7AVVcoxs5jlK25Vla9qs=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -1146,6 +1180,27 @@
 			<key>hash2</key>
 			<data>
 			N7PClLov0eR6Ot2IYkw9oZPzizEQxwtyBhvHJczHhzs=
+			</data>
+		</dict>
+		<key>Frameworks/webview_flutter_wkwebview.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Es4IlEcl/iA9OBWHPWcyI7HytB0rlnRvtawcHNez3XE=
+			</data>
+		</dict>
+		<key>Frameworks/webview_flutter_wkwebview.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+ar4aKfw0A0KopVejanbFi+F8QjPTt9zw4J1F1PrZ6w=
+			</data>
+		</dict>
+		<key>Frameworks/webview_flutter_wkwebview.framework/webview_flutter_wkwebview</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			qpQ0VsbUd/CF3U2px03thpb+i4NZeP6HJNFKpHw1BWE=
 			</data>
 		</dict>
 	</dict>
