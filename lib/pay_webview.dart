@@ -42,7 +42,7 @@ class _PasswordScreenState extends State<TransferMoneyScreen> {
         initialOptions: InAppWebViewGroupOptions(
             android: AndroidInAppWebViewOptions(useHybridComposition: true)),
         onLoadStop: (controller, url) async {
-          if(url.toString().startsWith("http://168.131.151.213:4040/transaction_done")) {
+          if(url.toString().startsWith("http://172.10.5.135/transaction_done")) {
             Uri uri = Uri.parse(url.toString());
             String? data = uri.queryParameters['transactionType'];
 

@@ -1,54 +1,64 @@
-# Madmory
-> Letter sharing Application for participant of MadCamp (centering on inner join and OAuth security)
+# 은행 애플리케이션 (MadBank)
 
-## Development Information
-### ⌛️ Dev. Duration
-30, June, 2023 ~ 12, July, 2023
+은행 애플리케이션(MadBank)은 고객이 은행 거래와 계정을 편리하게 관리할 수 있는 모바일 애플리케이션입니다. 이 애플리케이션은 계좌 관리, 자금 이체, 거래 내역 조회 등 다양한 기능을 제공합니다. 사용자가 은행 업무를 간소화하고 원활한 은행 경험을 할 수 있도록 설계되었습니다.
 
-### 👫 The Team
-- Sujee Noh(Chonnam National University, Software Engineering)
-- Yeonguk Jang (KAIST, Computer Science)
+## 개발 정보
+⌛️ 개발 기간
+2023년 7월 12일 - 7월 19일
 
-### 🌏 Dev. Environment
-- ```Java 11```
-- Spring Boot 2.6.7
-- Mybatis 2.3.1
+👫 팀 구성
+- Sujee Noh (전남대학교, 소프트웨어공학)
+- Jiyeon Min (KAST 전산학부)
+- Junseo Kim (한양대학교 컴퓨트소프트웨어학부)
+
+🌏 개발 환경
 - Flutter
 
- ## Motivation
- With Madmory, you can effortlessly compose heartfelt messages and share them with friends, family, and loved ones, all from the convenience of your smartphone or computer. Whether it's expressing your deepest emotions, conveying gratitude, or simply staying in touch, our application provides a platform where your words can truly come alive.
- Share your love to other participants with madmory 🥰
+## 동기
+MadBank는 MadCamp 프로젝트의 일환으로 개발된 애플리케이션입니다. 이 애플리케이션은 사용자 친화적인 은행 애플리케이션으로서 필수적인 은행 기능과 원활한 사용자 경험을 제공하기 위해 개발되었습니다. MadBank는 사용자에게 편리하고 안전한 플랫폼을 제공하여 계정 관리, 거래 추적, 다양한 은행 업무를 수행할 수 있도록 목표로 합니다.
 
- ## Main Function
- ### Section 1. User Handling
- - Login
- - Sign up
- - Sign up with kakao account
- - Login with kakao account
+## 주요 기능
+은행 애플리케이션은 다음과 같은 주요 기능을 제공합니다:
 
-![login](/photos/login.jpeg)
-![signup](/photos/signup.jpeg)
-![wrong](/photos/wrong.jpeg)
-![invalid](/photos/invalid.jpeg)
+### 사용자 처리
+- 로그인: 사용자는 자신의 계정 정보를 사용하여 안전하게 로그인할 수 있습니다.
+- 회원가입: 새로운 사용자는 필요한 정보를 제공하여 회원으로 가입할 수 있습니다.
+- 카카오 계정으로 회원가입: 사용자는 카카오 계정을 사용하여 회원으로 가입할 수 있습니다.
+- 카카오 계정으로 로그인: 사용자는 카카오 계정으로 더 빠른 접근을 위해 로그인할 수 있습니다.
 
-### Section 2. My Tree
-- Read letters user received
-- Display Tree with fruits(letter)
+### 계정 관리
+- 계정 상세 정보 확인: 사용자는 계좌 번호, 잔액, 최근 거래 등 자신의 계정 정보를 확인할 수 있습니다.
+- 자금 이체: 사용자는 자신의 계정 간 또는 은행 내 다른 계정에 자금을 이체할 수 있습니다.
+- 거래 내역 조회: 사용자는 날짜, 금액, 거래 유형 등 자세한 거래 내역을 조회할 수 있습니다.
 
-![mytree](/photos/mytree.jpeg)
+### 결제(pay)
+- 결제: 내부의 앱에서 결제 계좌를 선택 후 물품을 구매할 수 있습니다.
 
-### Section 3. Write Letter to other user
-- Show list of other users
-- Write letter to selected user
+MadBank 애플리케이션은 사용자의 은행 거래와 개인 정보의 안전을 보장하기 위해 사용자 친화적인 인터페이스, 원활한 탐색 기능 및 견고한 보안 조치를 제공합니다.
 
-![users](/photos/users.jpeg)
-![writetree](/photos/writetree.jpeg)
-![refresh](/photos/refresh.jpeg)
-![letterform](/photos/letterform.jpeg)
+## 시작하기
+MadBank 애플리케이션을 사용하려면 다음 단계를 따르세요:
 
-### Section 4. Shared letters
-- List existing groups
-- Write group letter to selected group
-- Read letters written by other users
+1. 저장소를 복제하세요: [MadBank](https://github.com/su-giana/mad-bank-front.git)
+2. 개발 환경에 Flutter를 설치하세요.
+3. 프로젝트에서 필요한 종속성과 패키지를 설정하세요.
+4. 선호하는 플랫폼(Android 또는 iOS)에서 애플리케이션을 빌드하고 실행하세요.
 
-![farms](/photos/users.farms)
+실제 구현 및 설정 절차는 구체적인 개발 환경과 프로젝트 요구 사항에 따라 달라질 수 있습니다.
+
+## 향후 개선 사항
+MadBank 애플리케이션은 계속해서 기능을 개선하고 확장할 계획입니다. 일부 예상되는 향후 개선 사항은 다음과 같습니다:
+
+- 생체 인증 및 2단계 인증과 같은 추가 보안 기능 구현
+- 대출 신청 및 신용카드 관리와 같은 추가 은행 서비스 통합
+- 직관적인 디자인과 애니메이션을 더한 사용자 인터페이스 및 사용자 경험 향상
+- 다국어 지원 추가로 보다 넓은 사용자 범위 대응
+
+의견 및 기여
+MadBank 애플리케이션 프로젝트에 대한 의견, 제안 또는 기여를 환영합니다. 문제를 발견하거나 개선 아
+
+이디어가 있다면 프로젝트의 이슈 트래커를 통해 제출하거나 직접 개발 팀에 문의해주시기 바랍니다.
+
+Bank Application을 사용하여 은행 업무를 원활하게 처리하시기를 바랍니다!
+
+**참고**: 이 문서에서 소개하는 Bank Application은 데모용으로 작성된 가상 은행 애플리케이션입니다. 실제 은행 기관을 대표하는 것은 아닙니다.
