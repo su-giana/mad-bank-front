@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/market.dart';
+import 'package:flutter_application_1/pay_webview.dart';
+
+import 'first_tab.dart';
 
 class PaymentScreen extends StatefulWidget {
   final Product product;
@@ -227,7 +230,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           fontWeight: FontWeight.bold,
                           fontSize: 24,
                           color: Colors.black,
-                          // Add any other desired styles here
                         ),
                       ),
                       SizedBox(height: width * 0.05),
@@ -385,20 +387,18 @@ class _PaymentScreenState extends State<PaymentScreen> {
             height: height * 0.06,
             child: ElevatedButton(
               onPressed: () {
-                // Perform payment with the selected account
-                // You can navigate to a success screen or perform any other action
-                // final selectedAccountValue = selectedAccount.value;
-                // if (selectedAccountValue != null) {
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => TransferMoneyScreen(
-                //         account: selectedAccountValue,
-                //         product: product,
-                //       ),
-                //     ),
-                //   );
-                // }
+                final selectedAccountValue = selectedAccount.value;
+                if (selectedAccountValue != null) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TransferMoneyScreen(
+                        account: selectedAccountValue,
+                        product: widget.product,
+                      ),
+                    ),
+                  );
+                }
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
@@ -421,3 +421,4 @@ class _PaymentScreenState extends State<PaymentScreen> {
     );
   }
 }
+

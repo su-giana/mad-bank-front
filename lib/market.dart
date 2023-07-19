@@ -7,6 +7,7 @@ import 'package:flutter_application_1/my_transaction/my_transaction_screen.dart'
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'first_page.dart';
+import 'first_tab.dart';
 
 String backgroundImagePath = 'assets/images/loginBackgroundImage.jpeg';
 String baseUrl = "http://127.0.0.1:8080";
@@ -298,25 +299,3 @@ class Product {
   }
 }
 
-class Account {
-  final int id;
-  final int userId;
-  final String accountNumber;
-  final int balance;
-
-  Account({
-    required this.id,
-    required this.userId,
-    required this.accountNumber,
-    required this.balance,
-  });
-
-  factory Account.fromJson(Map<String, dynamic> json) {
-    return Account(
-      id: json['accountId'],
-      userId: json['userId'],
-      accountNumber: json['accountNumber'],
-      balance: json['balance'],
-    );
-  }
-}

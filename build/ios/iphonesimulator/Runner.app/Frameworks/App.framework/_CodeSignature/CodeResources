@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		h8BtviQanTkkObPjSJKexC08N3s=
+		EGIUxJIl3A4FUpYxEhm9F6mkAZM=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		1OxJSrFYaRX4w5FmNq97jD6tANU=
+		JrXsEc65D4vzjgy8974auVZLLVI=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		uETDrzA/7i8PjJzj5bDZMrpsJIs=
+		//wCPM0WQ61Nq6vI+qkZqBgIODc=
 		</data>
 		<key>flutter_assets/assets/fonts/mainboldfont.ttf</key>
 		<data>
@@ -36,9 +36,17 @@
 		<data>
 		3y++sUAKzaCQmjLBz2v0kvESHgc=
 		</data>
+		<key>flutter_assets/assets/images/afterselect.jpg</key>
+		<data>
+		Av6kmFp9lkpWIFB6Y5NxD3RghCU=
+		</data>
 		<key>flutter_assets/assets/images/banklogo.png</key>
 		<data>
 		0LmGiM/fFcGQeSD7av6Iyc4AHWw=
+		</data>
+		<key>flutter_assets/assets/images/beforeselect.jpg</key>
+		<data>
+		Yk5q1AuSdrA00/AczUqzVnM2PMI=
 		</data>
 		<key>flutter_assets/assets/images/compactpass.gif</key>
 		<data>
@@ -78,7 +86,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		XGVn62fBPLVFN/BC9PmY7EAuFL0=
+		butGFNlT+4o6kxvu2QaTn31LJHI=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -171,14 +179,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			13u0rFx0R8MBfP1BUF1NF2EnL/tiha5WLaE/BXgMPc0=
+			ZuZAWd86QUgJ2aRc8LC2D1CbBReIo6Qfxd5HMtyh96Q=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aiGaOMM0fAbAuQF9Zqf3q6yvWfWwh79bKbl4dGJ4bWE=
+			eet1GzKhRN18tYXi3nQ828Lw54fnHsctoc7XYFJxtow=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -192,7 +200,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ij7006/dfim1ZPKc/zN5bPUPUQgG5RDQy0WHY3QIPn0=
+			VdGq4Xy75i2DhuBSf6p3f80X1n7ub/M0C5nuIYd8tjo=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/fonts/mainboldfont.ttf</key>
@@ -209,11 +217,25 @@
 			m4cncxNOLk2MCxcCEmZ4ZXbbBshD7eDQtSOyFKRQdWw=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/afterselect.jpg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			iSmsBQCSXf7YgtiQNRNtLdmCl6juYMMHliWUc7BTaBU=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/images/banklogo.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			j2SA2fpsr3wa6Ntwi7VzD4kocNQwMZ18ff8fctBs+LE=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/beforeselect.jpg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			qLFVgobGF7bGMxp/QPWygQ/7XuAGWBV6gd1NhPVNFBQ=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/compactpass.gif</key>
@@ -283,7 +305,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tzK5sSU+VinXQDdNa8lxyweLmItCMiJ8xaWkFz/gwXc=
+			W2oVc2usvHq0hB4eLXZ9tIA7AVVcoxs5jlK25Vla9qs=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
