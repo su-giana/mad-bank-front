@@ -436,13 +436,16 @@ class FirstTab extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 0, 0, 20),
-                          child: Text(
-                            "나의 입출금 통장 😽",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 0, 0, 20),
+                            child: Text(
+                              "나의 입출금 통장 😽",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
@@ -546,7 +549,13 @@ class FirstTab extends StatelessWidget {
                             }
                         ),
                         Container(
-                          color: Colors.amberAccent,
+                          width: width*0.9,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: const Color(0xFFE0E0E0)),
+                              borderRadius: BorderRadius.circular(8.0),
+                            color: Colors.amberAccent
+                          ),
+                          padding: const EdgeInsets.all(10),
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
                             child: Row(
