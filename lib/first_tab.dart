@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'first_page.dart';
 
 String backgroundImagePath = 'assets/images/loginBackgroundImage.jpeg';
-String baseUrl = "http://168.131.151.213:4040:";
+String baseUrl = "http://172.10.5.135:80";
 
 final defaultTextStyle = TextStyle(
   fontFamily: 'mainfont',
@@ -459,13 +459,13 @@ class FirstTab extends StatelessWidget {
                             builder: (BuildContext context, AsyncSnapshot<List<Account>> snapshot) {
                               if(snapshot.hasData) {
                                 List<Account> accounts = snapshot.data!;
-                                return GridView.builder(
+                                return ListView.builder(
                                         shrinkWrap: true,
                                         physics: NeverScrollableScrollPhysics(),
-                                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 1,
-                                          childAspectRatio: 3.5,
-                                        ),
+                                        // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                        //   crossAxisCount: 1,
+                                        //   childAspectRatio: 2.75,
+                                        // ),
                                         itemCount: accounts.length,
                                         itemBuilder: (BuildContext context, int index) {
                                           final item = accounts[index];

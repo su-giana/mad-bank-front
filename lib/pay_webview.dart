@@ -14,7 +14,7 @@ import '../loading_indicator.dart';
 import '../success.dart';
 import 'dialog_builders.dart';
 
-String baseUrl = 'http://168.131.151.213:4040';
+String baseUrl = 'http://172.10.5.135:80';
 
 class TransferMoneyScreen extends StatefulWidget {
   final Product product;
@@ -37,7 +37,7 @@ class _PasswordScreenState extends State<TransferMoneyScreen> {
     return Scaffold(
       body: InAppWebView(
         initialUrlRequest: URLRequest(
-          url: Uri.parse('$baseUrl/login?account=$accountId&product=$productId&redirect_url=http://168.131.151.213:4040/transaction_done'),
+          url: Uri.parse('$baseUrl/login?account=$accountId&product=$productId&redirect_url=http://172.10.5.135:80/transaction_done'),
         ),
         initialOptions: InAppWebViewGroupOptions(
             android: AndroidInAppWebViewOptions(useHybridComposition: true)),
