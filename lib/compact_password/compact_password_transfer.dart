@@ -87,7 +87,7 @@ class _PasswordScreenState extends State<PasswordTransferScreen> {
             Text(
               "간편 비밀번호를 입력해주세요",
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 25,
                 fontWeight: FontWeight.bold,
                 fontFamily: "mainfont",
               ),
@@ -103,7 +103,7 @@ class _PasswordScreenState extends State<PasswordTransferScreen> {
                     backgroundColor: index < enteredPassword.length
                         ? Colors.yellow
                         : Colors.grey,
-                    radius: 20,
+                    radius: 10,
                     child: Text(
                       index < enteredPassword.length ? '' : '',
                       style: TextStyle(

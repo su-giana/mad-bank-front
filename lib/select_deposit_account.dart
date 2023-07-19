@@ -101,40 +101,43 @@ class SelectDepositAccountTab extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "매드뱅크",
-                                            style: Theme.of(context).textTheme.caption,
-                                          ),
-                                          SizedBox(height: height * 0.005),
-                                          Text(
-                                            "${item.accountNumber.substring(0, 6)}-${item.accountNumber.substring(6, 9)}-${item.accountNumber.substring(9)}",
-                                            style: const TextStyle(
-                                              // fontWeight: FontWeight.bold,
-                                                fontSize: 16
+                                    Expanded(
+                                      child: Container(
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "매드뱅크",
+                                              style: Theme.of(context).textTheme.caption,
                                             ),
-                                          ),
-                                          SizedBox(height: height * 0.005),
-                                          Text(
-                                            "${item.balance}원",
-                                            style: const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18
+                                            SizedBox(height: height * 0.005),
+                                            Text(
+                                              "${item.accountNumber.substring(0, 6)}-${item.accountNumber.substring(6, 9)}-${item.accountNumber.substring(9)}",
+                                              style: const TextStyle(
+                                                // fontWeight: FontWeight.bold,
+                                                  fontSize: 16
+                                              ),
                                             ),
-                                            maxLines: 2,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
+                                            SizedBox(height: height * 0.005),
+                                            Text(
+                                              "${item.balance}원",
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 18
+                                              ),
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
 
-                                          SizedBox(height: height * 0.005),
-                                          Text(
-                                            "${DateTime.now()}에 갱신됨",
-                                            style: Theme.of(context).textTheme.caption,
-                                          ),
-                                        ],
+                                            SizedBox(height: height * 0.005),
+                                            Text(
+                                              "${DateTime.now()}에 갱신됨",
+                                              style: Theme.of(context).textTheme.caption,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ],
