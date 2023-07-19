@@ -176,7 +176,7 @@ class _PasswordScreenState extends State<PasswordSelfTransferScreen> {
             Text(
               "간편 비밀번호를 입력해주세요",
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
                 fontFamily: "mainfont",
               ),
@@ -187,7 +187,7 @@ class _PasswordScreenState extends State<PasswordSelfTransferScreen> {
               children: List.generate(
                 passwordLength,
                     (index) => Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: CircleAvatar(
                     backgroundColor: index < enteredPassword.length
                         ? Colors.yellow
