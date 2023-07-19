@@ -62,8 +62,12 @@ class _WithAccountFormState extends State<WithAccountForm> {
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            "어디로?",
-                            style: TextStyle(fontFamily: "mainfont", fontSize: 30),
+                            "어떤 계좌로 보낼까요?",
+                            style: TextStyle(
+                                fontFamily: "mainfont",
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25
+                            ),
                           ),
                         ),
                       ),
@@ -86,14 +90,18 @@ class _WithAccountFormState extends State<WithAccountForm> {
                           alignment: Alignment.centerLeft,
                           child: Text(
                             "얼마나 보낼까요?",
-                            style: TextStyle(fontFamily: "mainfont", fontSize: 30),
+                            style: TextStyle(
+                                fontFamily: "mainfont",
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25
+                            ),
                           ),
                         ),
                       ),
                       TextFormField(
                         controller: _transferCostController,
                         decoration: InputDecoration(
-                          hintText: '금액을 입력하세요',
+                          hintText: '금액 입력하세요',
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
@@ -109,7 +117,7 @@ class _WithAccountFormState extends State<WithAccountForm> {
                           await _startAnimation(context, _accountNumberController.text, int.parse(_transferCostController.text));
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.black87, // Background color
+                          primary: Colors.amberAccent, // Background color
                           padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8), // Rounded corners
@@ -118,7 +126,11 @@ class _WithAccountFormState extends State<WithAccountForm> {
                         ),
                         child: Text(
                           '전송하기',
-                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54
+                          ),
                         ),
                       )
                     ],

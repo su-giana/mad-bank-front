@@ -28,6 +28,7 @@ class _PasswordScreenState extends State<PasswordSelfTransferScreen> {
   final int passwordLength = 6;
   String enteredPassword = '';
   bool isPasswordComplete = false;
+  double opacity = 0.0;
 
   Future<void> submitTransaction(String transactionType, Account item, int cost, String compactPasswod) async
   {
@@ -109,9 +110,18 @@ class _PasswordScreenState extends State<PasswordSelfTransferScreen> {
 
     @override
   void initState() {
-    super.initState();
-    // Call a function to disable the software keyboard and focus on the TextFormField
-    disableKeyboard();
+    // super.initState();
+    // // Call a function to disable the software keyboard and focus on the TextFormField
+    // disableKeyboard();
+      super.initState();
+      // Call a function to disable the software keyboard and focus on the TextFormField
+      disableKeyboard();
+      // Start the fade-in animation after a short delay
+      Future.delayed(Duration(milliseconds: 300), () {
+        setState(() {
+          opacity = 0.0;
+        });
+      });
   }
 
   // Function to update the entered password and check if it's complete
@@ -119,8 +129,14 @@ class _PasswordScreenState extends State<PasswordSelfTransferScreen> {
     setState(() {
       enteredPassword = value;
       isPasswordComplete = enteredPassword.length == passwordLength;
+      if (isPasswordComplete) {
+        opacity = 1.0;
+      } else {
+        opacity = 0.0;
+      }
     });
   }
+
 
   // Function to handle form submission
   void onSubmit() async {
@@ -153,46 +169,11 @@ class _PasswordScreenState extends State<PasswordSelfTransferScreen> {
       body: GestureDetector(
         onTap: handleTapOutside, // Handle taps outside the form
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start, // Align the Column to the top of the screen
+          mainAxisAlignment: MainAxisAlignment.center, // Align the Column to the top of the screen
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 50, 0, 0), // Adjust the top padding
-              child: Visibility(
-                visible: isPasswordComplete,
-                child: Container(
-                  width: 200,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border(
-                      bottom: BorderSide(
-                        color: Colors.black,
-                        width: 2.0,
-                      ),
-                    ),
-                  ),
-                  child: ElevatedButton(
-                    onPressed: onSubmit,
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.transparent, // Make the button background transparent
-                      shadowColor: Colors.transparent, // Remove shadow
-                      elevation: 0, // Remove elevation
-                    ),
-                    child: Text(
-                      "비밀번호 제출하기",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
             Text(
-              "비밀번호를 입력해주세요",
+              "간편 비밀번호를 입력해주세요",
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
@@ -253,13 +234,47 @@ class _PasswordScreenState extends State<PasswordSelfTransferScreen> {
                 obscureText: true, // To hide the entered numbers with dots
               ),
             ),
+            AnimatedOpacity(
+              opacity: opacity,
+              duration: Duration(milliseconds: 500),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0, 50, 0, 0), // Adjust the top padding
+                child: Container(
+                  width: 200,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border(
+                      bottom: BorderSide(
+                        color: Colors.black,
+                        width: 2.0,
+                      ),
+                    ),
+                  ),
+                  child: ElevatedButton(
+                    onPressed: onSubmit,
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.transparent, // Make the button background transparent
+                      shadowColor: Colors.transparent, // Remove shadow
+                      elevation: 0, // Remove elevation
+                    ),
+                    child: Text(
+                      "비밀번호 제출하기",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
-
-
 }
 
 
