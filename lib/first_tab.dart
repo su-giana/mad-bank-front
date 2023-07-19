@@ -446,52 +446,6 @@ class FirstTab extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Container(
-                          color: Colors.amberAccent,
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      "새 계좌가 필요하신가요?",
-                                      style: TextStyle(
-                                        fontFamily: "mainfont",
-                                        color: Colors.black87,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Padding(
-                                      padding: const EdgeInsets.all(13.0),
-                                      child: GestureDetector(
-                                        child: Text(
-                                          "계좌 개설하기!",
-                                          style: TextStyle(
-                                            fontFamily: "mainfont",
-                                            color: Colors.black87,
-                                            fontSize: 18,
-                                          ),
-                                        ),
-                                        onTap: () async {
-                                          await createAccount(context);
-                                        },
-                                      )
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
                         FutureBuilder<List<Account>>(
                             future: getAccountList(),
                             builder: (BuildContext context, AsyncSnapshot<List<Account>> snapshot) {
@@ -590,6 +544,52 @@ class FirstTab extends StatelessWidget {
                                       return CircularProgressIndicator();
                                     }
                             }
+                        ),
+                        Container(
+                          color: Colors.amberAccent,
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "새 계좌가 필요하신가요?",
+                                      style: TextStyle(
+                                        fontFamily: "mainfont",
+                                        color: Colors.black87,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Padding(
+                                      padding: const EdgeInsets.all(13.0),
+                                      child: GestureDetector(
+                                        child: Text(
+                                          "계좌 개설하기!",
+                                          style: TextStyle(
+                                            fontFamily: "mainfont",
+                                            color: Colors.black87,
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                        onTap: () async {
+                                          await createAccount(context);
+                                        },
+                                      )
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ],
                     ),
