@@ -77,7 +77,12 @@ class SelectDepositAccountTab extends StatelessWidget {
                             const EdgeInsets.symmetric(horizontal: 16, vertical: 5.0),
                             decoration: BoxDecoration(
                                 border: Border.all(color: const Color(0xFFE0E0E0)),
-                                borderRadius: BorderRadius.circular(8.0)),
+                                borderRadius: BorderRadius.circular(8.0),
+                                image: DecorationImage(
+                                  image: AssetImage('assets/images/beforeselect.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                            ),
                             padding: const EdgeInsets.all(10),
                             child: Column(
                               children: [
@@ -96,23 +101,35 @@ class SelectDepositAccountTab extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    Expanded(
+                                    Container(
                                       child: Column(
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            "${item.accountNumber}",
-                                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                                            "매드뱅크",
+                                            style: Theme.of(context).textTheme.caption,
+                                          ),
+                                          SizedBox(height: height * 0.005),
+                                          Text(
+                                            "${item.accountNumber.substring(0, 6)}-${item.accountNumber.substring(6, 9)}-${item.accountNumber.substring(9)}",
+                                            style: const TextStyle(
+                                              // fontWeight: FontWeight.bold,
+                                                fontSize: 16
+                                            ),
+                                          ),
+                                          SizedBox(height: height * 0.005),
+                                          Text(
+                                            "${item.balance}원",
+                                            style: const TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 18
+                                            ),
                                             maxLines: 2,
                                             overflow: TextOverflow.ellipsis,
                                           ),
-                                          const SizedBox(height: 10),
-                                          Text(
-                                            "${item.balance}원",
-                                            style: Theme.of(context).textTheme.caption,
-                                          ),
-                                          const SizedBox(height: 8),
+
+                                          SizedBox(height: height * 0.005),
                                           Text(
                                             "${DateTime.now()}에 갱신됨",
                                             style: Theme.of(context).textTheme.caption,

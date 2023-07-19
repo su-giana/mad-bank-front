@@ -436,10 +436,15 @@ class FirstTab extends StatelessWidget {
                             ),
                           ),
                         ),
+                        Divider(
+                          color: Colors.grey[300],
+                          thickness: 1.0,
+                          height: 1.0,
+                        ),
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Padding(
-                            padding: const EdgeInsets.fromLTRB(10, 0, 0, 20),
+                            padding: EdgeInsets.fromLTRB(10, height *0.02, 0, height *0.02),
                             child: Text(
                               "나의 입출금 통장 😽",
                               style: TextStyle(
@@ -471,13 +476,20 @@ class FirstTab extends StatelessWidget {
                                                 MaterialPageRoute(builder: (context) => MyTransactionScreen(item)),
                                               );
                                             },
+
                                             child: Container(
                                               width: width*0.9,
                                               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5.0),
                                               decoration: BoxDecoration(
                                                   border: Border.all(color: const Color(0xFFE0E0E0)),
-                                                  borderRadius: BorderRadius.circular(8.0)),
+                                                  borderRadius: BorderRadius.circular(8.0),
+                                                  image: DecorationImage(
+                                                    image: AssetImage('assets/images/beforeselect.jpg'),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                              ),
                                               padding: const EdgeInsets.all(10),
+
                                               child: Column(
                                                 children: [
                                                   const SizedBox(height: 8),
