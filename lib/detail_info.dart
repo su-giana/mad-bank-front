@@ -56,100 +56,102 @@ class _DetailPageState extends State<DetailPage>
         child: AnimatedBuilder(
           animation: _animation,
           builder: (context, child) {
-            return Form(
-              child: Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image.asset(
-                      'assets/images/detailInfo.gif', // Replace with your logo image path
-                      width: 400, // Adjust the width as needed
-                      height: 400, // Adjust the height as needed
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                      child: AnimatedBuilder(
-                        animation: _animation,
-                        builder: (context, child) {
-                          return Transform.translate(
-                            offset: Offset(
-                              0.0,
-                              100 * (1.0 - _animation.value),
-                            ),
-                            child: TextFormField(
-                              controller: _phoneController,
-                              decoration: InputDecoration(
-                                labelText: '휴대전화 번호',
-                              ),
-                            ),
-                          );
-                        },
+            return SingleChildScrollView(
+              child: Form(
+                child: Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(
+                        'assets/images/detailInfo.gif', // Replace with your logo image path
+                        width: 400, // Adjust the width as needed
+                        height: 400, // Adjust the height as needed
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                      child: AnimatedBuilder(
-                        animation: _animation,
-                        builder: (context, child) {
-                          return Transform.translate(
-                            offset: Offset(
-                              0.0,
-                              100 * (1.0 - _animation.value),
-                            ),
-                            child: TextFormField(
-                              controller: _birthdateController,
-                              decoration: InputDecoration(
-                                labelText: '생년 월일 (YYMMDD)',
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                        child: AnimatedBuilder(
+                          animation: _animation,
+                          builder: (context, child) {
+                            return Transform.translate(
+                              offset: Offset(
+                                0.0,
+                                100 * (1.0 - _animation.value),
                               ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
-                      child: AnimatedBuilder(
-                        animation: _animation,
-                        builder: (context, child) {
-                          return Transform.translate(
-                            offset: Offset(
-                              0.0,
-                              100 * (1.0 - _animation.value),
-                            ),
-                            child: TextFormField(
-                              controller: _idController,
-                              decoration: InputDecoration(
-                                labelText: '주민번호 뒷자리',
+                              child: TextFormField(
+                                controller: _phoneController,
+                                decoration: InputDecoration(
+                                  labelText: '휴대전화 번호',
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () async {
-                        await _startAnimation(
-                          context,
-                          _phoneController.text,
-                          _birthdateController.text,
-                          _idController.text,
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.black, // Set the background color of the button
-                        onPrimary: Colors.white, // Set the text color of the button
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0), // Set the border radius
-                        ),
-                        padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0), // Set padding
-                        textStyle: TextStyle(
-                          fontSize: 20.0, // Set the font size of the button text
+                            );
+                          },
                         ),
                       ),
-                      child: Text('등록하기'),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                        child: AnimatedBuilder(
+                          animation: _animation,
+                          builder: (context, child) {
+                            return Transform.translate(
+                              offset: Offset(
+                                0.0,
+                                100 * (1.0 - _animation.value),
+                              ),
+                              child: TextFormField(
+                                controller: _birthdateController,
+                                decoration: InputDecoration(
+                                  labelText: '생년 월일 (YYMMDD)',
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
+                        child: AnimatedBuilder(
+                          animation: _animation,
+                          builder: (context, child) {
+                            return Transform.translate(
+                              offset: Offset(
+                                0.0,
+                                100 * (1.0 - _animation.value),
+                              ),
+                              child: TextFormField(
+                                controller: _idController,
+                                decoration: InputDecoration(
+                                  labelText: '주민번호 뒷자리',
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () async {
+                          await _startAnimation(
+                            context,
+                            _phoneController.text,
+                            _birthdateController.text,
+                            _idController.text,
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.black, // Set the background color of the button
+                          onPrimary: Colors.white, // Set the text color of the button
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0), // Set the border radius
+                          ),
+                          padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0), // Set padding
+                          textStyle: TextStyle(
+                            fontSize: 20.0, // Set the font size of the button text
+                          ),
+                        ),
+                        child: Text('등록하기'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );

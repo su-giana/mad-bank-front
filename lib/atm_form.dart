@@ -12,7 +12,7 @@ import 'compact_password/compact_password_self.dart';
 import 'fail.dart';
 import 'first_tab.dart';
 
-String baseUrl = 'http://127.0.0.1:8080';
+String baseUrl = 'http://168.131.151.213:4040';
 
 
 class AtmForm extends StatefulWidget {

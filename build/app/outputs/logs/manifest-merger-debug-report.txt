@@ -33,6 +33,7 @@ MERGED from [:flutter_web_auth] /Users/suzynoh/AndroidStudioProjects/madbank_fro
 MERGED from [:sqflite] /Users/suzynoh/AndroidStudioProjects/madbank_front/build/sqflite/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:url_launcher_android] /Users/suzynoh/AndroidStudioProjects/madbank_front/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
 MERGED from [:fluttertoast] /Users/suzynoh/AndroidStudioProjects/madbank_front/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:webview_flutter_android] /Users/suzynoh/AndroidStudioProjects/madbank_front/build/webview_flutter_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/suzynoh/.gradle/caches/transforms-3/128f7549c3f81d242aa9f589ae0024c0/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/suzynoh/.gradle/caches/transforms-3/af57bbf1db2f2efb49b62e9468110ecb/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /Users/suzynoh/.gradle/caches/transforms-3/913f67364b97ccf3082b980a713abcb5/transformed/jetified-appcompat-resources-1.5.1/AndroidManifest.xml:17:1-22:12
@@ -99,6 +100,8 @@ MERGED from [:url_launcher_android] /Users/suzynoh/AndroidStudioProjects/madbank
 MERGED from [:url_launcher_android] /Users/suzynoh/AndroidStudioProjects/madbank_front/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:fluttertoast] /Users/suzynoh/AndroidStudioProjects/madbank_front/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:fluttertoast] /Users/suzynoh/AndroidStudioProjects/madbank_front/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:webview_flutter_android] /Users/suzynoh/AndroidStudioProjects/madbank_front/build/webview_flutter_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:webview_flutter_android] /Users/suzynoh/AndroidStudioProjects/madbank_front/build/webview_flutter_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/suzynoh/.gradle/caches/transforms-3/128f7549c3f81d242aa9f589ae0024c0/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/suzynoh/.gradle/caches/transforms-3/128f7549c3f81d242aa9f589ae0024c0/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/suzynoh/.gradle/caches/transforms-3/af57bbf1db2f2efb49b62e9468110ecb/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41

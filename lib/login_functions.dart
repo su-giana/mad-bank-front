@@ -7,7 +7,7 @@ import 'package:flutter_application_1/first_page.dart';
 import 'detail_info.dart';
 import 'dialog_builders.dart';
 
-String baseUrl = "http://127.0.0.1:8080";
+String baseUrl = "http://168.131.151.213:4040";
 
 class LoginFunctions {
   const LoginFunctions(this.context);

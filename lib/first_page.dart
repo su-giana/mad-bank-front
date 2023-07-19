@@ -19,7 +19,7 @@ import 'package:tuple/tuple.dart';
 import 'package:intl/intl.dart';
 
 String backgroundImagePath = 'assets/images/loginBackgroundImage.jpeg';
-String baseUrl = "http://127.0.0.1:8080";
+String baseUrl = "http://168.131.151.213:4040";
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -94,7 +94,7 @@ class _FirstState extends State<FirstPage> {
                     gap: 8,
                     activeColor: const Color.fromARGB(255, 0, 0, 0),
                     iconSize: 24,
-                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                     duration: const Duration(milliseconds: 400),
                     tabBackgroundColor: Colors.grey[100]!,
                     color: const Color.fromARGB(255, 255, 255, 255),
@@ -143,7 +143,7 @@ class ImagePlanThumbnail extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          width: 120.0,
+          width: 100.0,
           height: 120.0,
           margin: const EdgeInsets.only(bottom: 6),
           // decoration: BoxDecoration(

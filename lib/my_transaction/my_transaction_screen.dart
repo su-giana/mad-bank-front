@@ -15,7 +15,7 @@ final defaultTextStyle = TextStyle(
   fontSize: 16,
 );
 
-final String baseUrl = 'http://localhost:8080';
+final String baseUrl = 'http://168.131.151.213:4040';
 
 class MyTransactionScreen extends StatefulWidget{
 

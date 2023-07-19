@@ -14,7 +14,7 @@ import '../loading_indicator.dart';
 import '../success.dart';
 import 'dialog_builders.dart';
 
-String baseUrl = 'http://127.0.0.1:8080';
+String baseUrl = 'http://168.131.151.213:4040';
 
 class TransferMoneyScreen extends StatefulWidget {
   final Product product;
@@ -37,26 +37,28 @@ class _PasswordScreenState extends State<TransferMoneyScreen> {
     return Scaffold(
       body: InAppWebView(
         initialUrlRequest: URLRequest(
-          url: Uri.parse('$baseUrl/login?account=$accountId&product=$productId&redirect_url=http://127.0.0.1:8080/transaction_done'),
+          url: Uri.parse('$baseUrl/login?account=$accountId&product=$productId&redirect_url=http://168.131.151.213:4040/transaction_done'),
         ),
         initialOptions: InAppWebViewGroupOptions(
             android: AndroidInAppWebViewOptions(useHybridComposition: true)),
         onLoadStop: (controller, url) async {
-          if(url.toString().startsWith("http://127.0.0.1:8080/transaction_done")) {
+          if(url.toString().startsWith("http://168.131.151.213:4040/transaction_done")) {
             Uri uri = Uri.parse(url.toString());
-            String? data = uri.queryParameters['transaction_type'];
+            String? data = uri.queryParameters['transactionType'];
 
-            if(data != 200)
+            if(data != 200 && data != "200")
             {
-              DialogBuilder(context).showResultDialog('다시 시도해주세요.');
               Navigator.of(context).pop();
+              await Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => FailScreen(cost: int.parse(widget.product.price), sentAccountNumber: widget.account.accountNumber, receivedAccountNumber: widget.product.name)));
             }
             else
             {
-              DialogBuilder(context).showResultDialog('결제가 성공했습니다');
+              Navigator.of(context).pop();
               await Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const FirstPage()),
+                MaterialPageRoute(builder: (context) => SuccessScreen(cost: int.parse(widget.product.price), sentAccount: widget.account.accountNumber, receivedAcount: widget.product.name)),
               );
             }
 
