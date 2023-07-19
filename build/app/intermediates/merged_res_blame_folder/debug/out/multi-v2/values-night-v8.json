@@ -4,14 +4,14 @@
             "outputFile": "com.example.flutter_application_1.app-mergeDebugResources-26:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/suzynoh/AndroidStudioProjects/madbank_front/android/app/src/main/res/values-night/styles.xml",
+                    "source": "C:\\Users\\kaimj\\AndroidStudioProjects\\mad-bank-front\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
-                        "startOffsets": "172,817",
+                        "startOffsets": "175,831",
                         "endLines": "7,16",
                         "endColumns": "12,12",
-                        "endOffsets": "475,981"
+                        "endOffsets": "482,997"
                     },
                     "to": {
                         "startLines": "2,6",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/suzynoh/.gradle/caches/transforms-3/e7b2d2663a5337537c45e7786a65fdd5/transformed/appcompat-1.5.1/res/values-night-v8/values-night-v8.xml",
+                    "source": "C:\\Users\\kaimj\\.gradle\\caches\\transforms-3\\e7b2d2663a5337537c45e7786a65fdd5\\transformed\\appcompat-1.5.1\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

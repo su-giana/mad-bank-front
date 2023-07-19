@@ -11,12 +11,13 @@ import '../first_tab.dart';
 import '../loading_indicator.dart';
 import '../success.dart';
 
-String baseUrl = 'http://168.131.151.213:4040';
+String baseUrl = 'http://172.10.3.135:80';
 
 class PasswordSelfTransferScreen extends StatefulWidget {
   final String transactionType;
   final Account receivedItem;
   final int cost;
+
 
   const PasswordSelfTransferScreen({super.key, required this.transactionType, required this.receivedItem, required this.cost });
 
