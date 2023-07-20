@@ -9,7 +9,7 @@
 👫 팀 구성
 - Sujee Noh (전남대학교, 소프트웨어공학)
 - Jiyeon Min (KAST 전산학부)
-- Junseo Kim (한양대학교 컴퓨트소프트웨어학부)
+- Junseo Kim (한양대학교 컴퓨터소프트웨어학부)
 
 🌏 개발 환경
 - Flutter
